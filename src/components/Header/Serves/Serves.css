@@ -1,0 +1,107 @@
+
+.popap__container {
+  display: block;
+  position: absolute;
+  min-width: 360px;
+  max-width: 430px;
+  top: 35px;
+  right: 0px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.5), 0px 2px 4px rgba(34,34,34,0.12);
+  line-height: 120%;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+a {
+  display: flex;
+  text-decoration: none;
+}
+
+.popap__title {
+  display: block;
+  padding: 16px 24px 14px;
+  color: #788394;
+  font-family: 'Raleway', sans-serif;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+  margin-left: 50px;  
+  border-top: 0 solid #788394;
+  border-right: 0 solid #788394;
+  border-bottom: 1px solid #788394;
+  border-left: 0 solid #788394;
+  border-color: rgba(120,131,148,0.2);
+}
+
+.popap__items {
+  list-style-type: none;
+  display: inline-block;
+  flex-grow: 1;
+}
+
+.popap__item {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px 12px 28px;
+  border-top: 0 solid #788394;
+  border-right: 0 solid #788394;
+  border-bottom: 1px solid #788394;
+  border-left: 0 solid #788394;
+  border-color: rgba(120,131,148,0.2);
+  cursor: pointer;
+  transition-delay: 1ms;
+  transition-duration: 0.25s;
+}
+
+.popap__item-text {
+  color: #325feb;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 500;
+}
+
+.popap__item-log {
+  color: #788394;
+  font-size: 24px;
+  width: 22px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.popap__item:hover {
+background-color: rgb(214, 228, 230);
+}
+
+.popap__item-button {
+  padding: 16px;
+  border-top: 1px solid #788394;
+  border-right: 0 solid #788394;
+  border-bottom: 0 solid #788394;
+  border-left: 0 solid #788394;
+  border-color: rgba(120,131,148,0.2);
+}
+
+.btn {
+  display: block;
+  background-color: #325FEB;
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  padding: 8px 30px 8px;
+  cursor: pointer;  
+  border-radius: 6px;
+  box-sizing: border-box;
+  border: none;
+  line-height: 120%;
+  font-family: 'Raleway', sans-serif;
+}
+
+.btn:hover {
+  background-color: #FBB040;
+  color: black;
+  transition: 250ms ease-in;
+}
