@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { Switch } from 'antd';
-import online from '../../../img/online.png';
+import online from '../../img/online.png';
 import { DownOutlined, LoginOutlined } from '@ant-design/icons';
-import { Serves } from '../Serves/serves';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeToggleSelector } from '../Redux/selectors';
-import { activeToggleAction } from '../Redux/actions';
-import { Link, redirect, useLocation, useNavigate } from 'react-router-dom';
+import { activeToggleSelector } from '../../Redux/selectors';
+import { activeToggleAction } from '../../Redux/actions';
+import { useNavigate } from 'react-router-dom';
+import { Serves } from '../Serves/Serves';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
@@ -23,7 +23,7 @@ const Header: React.FC = () => {
   const onToggle = () => {
     toggleDispatch(activeToggleAction());
     if (isToggle) {
-      return navigate("/toggle-f");
+      return navigate("/");
     }
     return navigate("/toggle-u");
   };
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
             <Switch
               onChange={onToggle}
               style={{ color: 'blue' }}
-              checked={isToggle} 
+              checked={isToggle}
             />
             <p style={{ color: isToggle ? '#325feb' : '' }} className='text-u'>Заказчикам</p>
           </li>
