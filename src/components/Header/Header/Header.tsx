@@ -7,7 +7,7 @@ import { Serves } from '../Serves/serves';
 import { useDispatch, useSelector } from 'react-redux';
 import { activeToggleSelector } from '../Redux/selectors';
 import { activeToggleAction } from '../Redux/actions';
-import { Link, redirect, useLocation } from 'react-router-dom';
+import { Link, redirect, useLocation, useNavigate } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
@@ -18,19 +18,15 @@ const Header: React.FC = () => {
 
   const toggleDispatch = useDispatch();
   const isToggle = useSelector(activeToggleSelector);
+  const navigate = useNavigate();
 
-  const onToggle = () => { 
-    toggleDispatch( activeToggleAction() ); 
-    redirect('/toggle-u');
+  const onToggle = () => {
+    toggleDispatch(activeToggleAction());
+    if (isToggle) {
+      return navigate("/toggle-f");
+    }
+    return navigate("/toggle-u");
   };
-
-  const match = useLocation()
-  if (isToggle) {
-    match.pathname = '/toggle-u';
-  } else {
-    match.pathname = '/toggle-f';
-  }
-  
 
   return (
     <header className='header'>
@@ -56,11 +52,13 @@ const Header: React.FC = () => {
             </div>
           </li>
           <li className='navigation__item navigation__item-state'>
-            <p style={{ color: isToggle ? '' : '#325feb' }} className='text-f'>Заказчикам</p>
+            <p style={{ color: isToggle ? '' : '#325feb' }} className='text-f'>Владельцу канала</p>
             <Switch
               onChange={onToggle}
-              style={{ color: 'blue' }} />
-            <p style={{ color: isToggle ? '#325feb' : '' }} className='text-u'>Владельцу канала</p>
+              style={{ color: 'blue' }}
+              checked={isToggle} 
+            />
+            <p style={{ color: isToggle ? '#325feb' : '' }} className='text-u'>Заказчикам</p>
           </li>
           <li className='navigation__item navigation__item-serves'>
             {isServesActived && <Serves />}
