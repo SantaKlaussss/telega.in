@@ -1,0 +1,147 @@
+.header {
+  position: relative;
+  line-height: 120%;
+  font-family: 'Raleway', sans-serif;
+  border-bottom: 1px solid black;
+  height: 76px;
+  width: 100%;
+}
+
+.navigation {
+  height: 100%;
+}
+
+.navigation__items {
+  height: 100%;
+  max-width: 1374px;
+  padding-left: 82px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.navigation__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo__online {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #10F09F;
+  width: 60px;
+  height: 28px;
+  margin-left: 24px;
+  border-radius: 7px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: help;
+  padding: 0 5px 0 10px;
+}
+
+.logo__online-icon {
+  width: 20px;
+  margin-right: 4px;
+}
+
+.logo__online-text {
+  margin-bottom: 4px;
+}
+
+.navigation__item-state {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-left: auto;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  color: #788394;
+}
+
+.text-f {
+  margin: 0 10px 0 0;
+  margin-left: auto;
+}
+
+
+.text-u {
+  margin: 0 0 0 10px;
+}
+
+.navigation__item-serves {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 0 0 25px;
+  position: relative;
+}
+
+.text-serves {
+  color: #39414e;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  margin: 0 10px 0 0;
+}
+
+.button-reg {
+  padding: 8px 16px;
+  margin-left: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: #325FEB;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-reg:hover {
+  background-color: #fbb040;
+  color: black;
+  border: none;
+  transition: all 450ms ease-in-out;
+}
+
+.navigation__item-enter{
+  cursor: pointer;
+}
+
+.navigation__item-enter:hover{
+  color: red;
+}
+
+.enter__button {
+  padding: 8px 16px;
+  margin-left: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #325feb;
+  border-radius: 5px;
+  border: none;
+  background-color: white
+}
+
+.enter__button:hover {
+  color: #000;
+}
+
+.enter__logo  {
+  color: blue;
+  width: '20px';
+  background-color: '#fff';
+  margin-left: 10px;
+  font-size: 16px;
+}
