@@ -1,5 +1,4 @@
-import React from 'react';
-import './Serves.css';
+import './serves.css';
 import { AlertOutlined, BarChartOutlined, CommentOutlined, CrownOutlined, RedditOutlined, RiseOutlined } from '@ant-design/icons';
 
 export const Serves = () => {

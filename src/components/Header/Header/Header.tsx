@@ -1,24 +1,36 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 import { Switch } from 'antd';
-import online from '../../img/online.png';
+import online from '../../../img/online.png';
 import { DownOutlined, LoginOutlined } from '@ant-design/icons';
-import { Serves } from './Serves/Serves';
+import { Serves } from '../Serves/serves';
+import { useDispatch, useSelector } from 'react-redux';
+import { activeToggleSelector } from '../Redux/selectors';
+import { activeToggleAction } from '../Redux/actions';
+import { Link, redirect, useLocation } from 'react-router-dom';
 
-export const Header: React.FC = () => {
-
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const changeColorState = () => {
-    setIsSwitchOn((prevState) => !prevState);
-  }
-
+const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
 
   const servesRotate = () => {
     setIsServesActived((prevState) => !prevState);
-
   }
+
+  const toggleDispatch = useDispatch();
+  const isToggle = useSelector(activeToggleSelector);
+
+  const onToggle = () => { 
+    toggleDispatch( activeToggleAction() ); 
+    redirect('/toggle-u');
+  };
+
+  const match = useLocation()
+  if (isToggle) {
+    match.pathname = '/toggle-u';
+  } else {
+    match.pathname = '/toggle-f';
+  }
+  
 
   return (
     <header className='header'>
@@ -44,20 +56,20 @@ export const Header: React.FC = () => {
             </div>
           </li>
           <li className='navigation__item navigation__item-state'>
-            <p style={{ color: isSwitchOn ? '' : 'blue'}} className='text-f'>Заказчикам</p>
-            <Switch 
-              onChange={changeColorState} 
-                style={{color: 'blue'}} />
-            <p style={{ color: isSwitchOn ? 'blue' : ''}} className='text-u'>Владельцу канала</p>
+            <p style={{ color: isToggle ? '' : '#325feb' }} className='text-f'>Заказчикам</p>
+            <Switch
+              onChange={onToggle}
+              style={{ color: 'blue' }} />
+            <p style={{ color: isToggle ? '#325feb' : '' }} className='text-u'>Владельцу канала</p>
           </li>
           <li className='navigation__item navigation__item-serves'>
-            {isServesActived && <Serves/>}
-            <p className='text-serves'> Cервисы</p>
-            <DownOutlined 
+            {isServesActived && <Serves />}
+            <p onClick={servesRotate} className='text-serves'> Cервисы</p>
+            <DownOutlined
               onClick={servesRotate} className='logo-serves'
               style={{
-                rotate: isServesActived ? '180deg': '',
-                transition: isServesActived ? '300ms': '300ms',
+                rotate: isServesActived ? '180deg' : '',
+                transition: isServesActived ? '300ms' : '300ms',
                 color: 'blue',
                 fontSize: '17px',
                 fontWeight: '500px'
@@ -67,17 +79,15 @@ export const Header: React.FC = () => {
             <button type='button' className='button-reg'>Регистрация</button>
           </li>
           <li className='navigation__item navigation__item-enter'>
-            <label htmlFor="blackColors" className='blackColors'>
-              <button 
-              type='button' 
-              className='button-enter'
-              name='blackColors'
-            >Войти</button>
-            <LoginOutlined  className='navigation__item-enter-logo' />
-            </label>
+            <div className='enter__button'>
+              Войти
+              <LoginOutlined className='enter__logo' />
+            </div>
           </li>
         </ul>
       </nav>
     </header>
   )
 }
+
+export default Header;
