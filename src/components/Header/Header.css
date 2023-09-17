@@ -2,7 +2,7 @@
   position: relative;
   line-height: 120%;
   font-family: 'Raleway', sans-serif;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgb(235, 233, 233);
   height: 76px;
   width: 100%;
 }
@@ -106,7 +106,7 @@
   cursor: pointer;
 }
 
-.button-reg:hover {
+.button__yellow-animation:hover {
   background-color: #fbb040;
   color: black;
   border: none;

@@ -74,7 +74,7 @@ const Header: React.FC = () => {
               }} />
           </li>
           <li className='navigation__item'>
-            <button type='button' className='button-reg'>Регистрация</button>
+            <button type='button' className='button-reg button__yellow-animation'>Регистрация</button>
           </li>
           <li className='navigation__item navigation__item-enter'>
             <div className='enter__button'>
