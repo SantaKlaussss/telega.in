@@ -1,0 +1,15 @@
+
+.slick-next:before {
+  font-size: 40px;
+  background-image:url('../../img/arrow.png');
+  background-size:contain;
+}
+
+.slider__item {
+  height: '160px';
+  color: '#fff';
+  line-height: '160px';
+  text-align: 'center';
+  background: '#364d79';
+  background-color: 'inherit';
+}

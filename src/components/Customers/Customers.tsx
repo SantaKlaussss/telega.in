@@ -1,7 +1,8 @@
 import Header from '../Header/Header';
 import './Customers.css';
 import online from '../../img/online.png';
-import main from '../../img/main.png'
+import main from '../../img/main.png';
+import { Slider } from '../Slider/Slider';
 
 export const Customers = () => {
   return (
@@ -39,11 +40,11 @@ export const Customers = () => {
               <img src={main} width={450} alt="main" />
             </div>
           </section>
-          <h1 className='title__carousel'>
-            Нам доверяют ЮРЛИЦА: Предоставляем счета и акты, работаем с ЭДО 
-          </h1>
-          <div>
-
+          <div className='customers__slider'>
+            <h1 className='title__slider'>
+              Нам доверяют ЮРЛИЦА: Предоставляем счета и акты, работаем с ЭДО
+            </h1>
+            <Slider />
           </div>
         </div>
       </div>

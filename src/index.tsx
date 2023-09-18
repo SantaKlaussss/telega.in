@@ -1,12 +1,13 @@
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { ConfigProvider } from 'antd';
+import { MantineProvider } from '@mantine/core';
 import './styles/reset.css';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './Redux';
+import '@mantine/carousel/styles.css';
 
 const store = createStore(
   rootReducer,
@@ -19,8 +20,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
-    <ConfigProvider >
+    <MantineProvider>
       <App />
-    </ConfigProvider>
+    </MantineProvider>
   </Provider>
 );
