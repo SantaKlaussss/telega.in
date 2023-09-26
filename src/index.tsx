@@ -7,11 +7,13 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './Redux';
+import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
+import { Api } from './Api';
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(Api)))
 );
 
 const root = ReactDOM.createRoot(

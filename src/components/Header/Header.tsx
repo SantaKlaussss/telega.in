@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Switch } from 'antd';
 import online from '../../img/online.png';
@@ -8,13 +8,19 @@ import { activeToggleSelector } from '../../Redux/selectors';
 import { activeToggleAction } from '../../Redux/actions';
 import { useNavigate } from 'react-router-dom';
 import { Serves } from '../Serves/Serves';
+import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
+import { usersOnlineSelector } from '../../Redux/Header/headerSelectors';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
 
   const servesRotate = () => {
-    setIsServesActived((prevState) => !prevState);
-  }
+    setIsServesActived((prevState) => !prevState)
+  };
+
+  useEffect(() => {fetchOnlineUsers()}, []);
+  const users = useSelector(usersOnlineSelector)
+
 
   const toggleDispatch = useDispatch();
   const isToggle = useSelector(activeToggleSelector);
@@ -48,7 +54,7 @@ const Header: React.FC = () => {
             </a>
             <div className="logo__online">
               <img className='logo__online-icon' src={online} width={20} height={'auto'} alt="онлайн" />
-              <span className='logo__online-text'>459</span>
+              <span className='logo__online-text'>{users}</span>
             </div>
           </li>
           <li className='navigation__item navigation__item-state'>

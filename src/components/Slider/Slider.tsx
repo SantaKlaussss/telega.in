@@ -1,7 +1,6 @@
-import { useRef } from 'react';
-import { Carousel } from 'antd';
-import { CarouselRef } from 'antd/es/carousel';
-import './Slider.css'
+import { Carousel } from '@mantine/carousel';
+import './Slider.css';
+import '@mantine/carousel/styles.css';
 import biofuel from '../../img/slice/biofuel.jpg';
 import bruno from '../../img/slice/bruno.jpg';
 import cabins from '../../img/slice/cabins.jpg';
@@ -15,73 +14,54 @@ import travelty from '../../img/slice/travelty.jpg';
 import wellness from '../../img/slice/wellness.jpg';
 import wolf from '../../img/slice/wolf.jpg';
 
-export const Slider: React.FC = () => {
-const slider = useRef<CarouselRef>(null)
-
+export function Slider() {
   return (
-    <div className='slider'>
-      <Carousel dots={false} ref={slider} arrows autoplay >
-        <div>
-          <h3 className='slider__item'>
-            <img src={biofuel} width={160} alt="biofuel" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={bruno} width={160} alt="bruno" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={cabins} width={160} alt="cabins" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={care} width={160} alt="care" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={coco} width={160} alt="coco" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={culture} width={160} alt="culture" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={gamer} width={160} alt="gamer" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={geometric} width={160} alt="geometric" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={panda} width={160} alt="panda" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={travelty} width={160} alt="travelty" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={wellness} width={160} alt="wellness" />
-          </h3>
-        </div>
-        <div>
-          <h3 className='slider__item'>
-            <img src={wolf} width={160} alt="wolf" />
-          </h3>
-        </div>
-      </Carousel>
-    </div>
-  )
-};
+    <Carousel
+      slideSize="17%"
+      loop
+      align="start"
+      slidesToScroll={1}
+      style={{
+        color: '#325FEB'
+      }}
+      controlSize={50}
+    >
+      <Carousel.Slide>
+        <img src={biofuel} height={121} alt="biofuel" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={bruno} height={121} alt="bruno" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={cabins} height={121} alt="cabins" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={care} height={121} alt="care" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={panda} height={121} alt="panda" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={travelty} height={121} alt="travelty" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={wolf} height={121} alt="wolf" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={coco} height={121} alt="coco" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={wellness} height={121} alt="wellness" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={culture} height={121} alt="culture" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={gamer} height={121} alt="gamer" />
+      </Carousel.Slide>
+      <Carousel.Slide>
+        <img src={geometric} height={121} alt="geometric" />
+      </Carousel.Slide>
+    </Carousel>
+  );
+}

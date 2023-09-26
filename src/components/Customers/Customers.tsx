@@ -3,6 +3,7 @@ import './Customers.css';
 import online from '../../img/online.png';
 import main from '../../img/main.png';
 import { Slider } from '../Slider/Slider';
+import Footer from '../Footer/Footer';
 
 export const Customers = () => {
   return (
@@ -41,11 +42,15 @@ export const Customers = () => {
             </div>
           </section>
           <div className='customers__slider'>
-            <h1 className='title__slider'>
+            <div className='slider__title'>
+              <h1 className='slider__title-text'>
               Нам доверяют ЮРЛИЦА: Предоставляем счета и акты, работаем с ЭДО
             </h1>
+              <div className='slider__title-line'></div>
+            </div>
             <Slider />
           </div>
+          <Footer />
         </div>
       </div>
     </>

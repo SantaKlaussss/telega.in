@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import {toggleMain} from './toggleMain';
+import {header} from '../Redux/Header/headerReducer';
 
 const rootReducer = combineReducers({
-  toggleMain,
+  header,
 })
 
 export default rootReducer

@@ -130,8 +130,13 @@ b {
   padding: 0 0 80px;
 }
 
-.title__slider {
+.slider__title {
   margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.slider__title-text {
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
@@ -139,17 +144,14 @@ b {
   color: #111;
 }
 
-.title__slider::after {
-  content: "";
-  bottom: -55px;
-  position: absolute;
+.slider__title-line {
   width: 250px;
-  border-top: 2px solid #EAEFFC;
-  margin-left: 20px ;
+  height: 2px;
+  background-color: #EAEFFC;
+  margin-left: 20px;
 }
 
 .slick-next {
   color: black;
   background-color: red;
 }
-
