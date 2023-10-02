@@ -12,14 +12,15 @@ export const isOnlineUsersErrorAction = () => ({ type: actions.ONLINE__ERROR });
 
 export const fetchOnlineUsers = () => (dispatch: any, getState: any, api: any) => {
   dispatch(fetchOnlineUsersRequest());
-
-  return api.requestAuth()
+  return api.getOnlineUsers()
     .then((res: any) => {
-      (res.status === actions.ONLINE_SUCCESS)
-      dispatch(isOnlineUsersSuccessAction(res.data.email));
+      if (res.status === 200) {
+        dispatch(isOnlineUsersSuccessAction(res.data.length))
+      };
     })
     .catch((err: any) => {
-      (err.response.status === actions.ONLINE__ERROR)
-      dispatch(isOnlineUsersErrorAction());
+      if (err.response.status !== 200) {
+        dispatch(isOnlineUsersErrorAction())
+      };
     })
 }

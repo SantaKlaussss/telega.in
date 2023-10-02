@@ -4,8 +4,8 @@ import { Switch } from 'antd';
 import online from '../../img/online.png';
 import { DownOutlined, LoginOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeToggleSelector } from '../../Redux/selectors';
-import { activeToggleAction } from '../../Redux/actions';
+import { activeToggleSelector } from '../../Redux/Header/headerSelectors';
+import { activeToggleAction } from '../../Redux/Header/headerActions';
 import { useNavigate } from 'react-router-dom';
 import { Serves } from '../Serves/Serves';
 import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
@@ -18,9 +18,15 @@ const Header: React.FC = () => {
     setIsServesActived((prevState) => !prevState)
   };
 
-  useEffect(() => {fetchOnlineUsers()}, []);
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchOnlineUsers() as any)
+  }, []);
+
   const users = useSelector(usersOnlineSelector)
 
+  console.log(users);
 
   const toggleDispatch = useDispatch();
   const isToggle = useSelector(activeToggleSelector);

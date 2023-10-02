@@ -7,5 +7,7 @@ export class Api {
     withCredentials: true
   });
 
-  getOnlineUsers = () => this.api.get('/posts/1/comments');
+  getOnlineUsers () {
+    return this.api.get('/posts/1/comments')
+  };
 }
