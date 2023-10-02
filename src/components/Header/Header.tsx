@@ -1,24 +1,44 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Header.css';
 import { Switch } from 'antd';
 import online from '../../img/online.png';
 import { DownOutlined, LoginOutlined } from '@ant-design/icons';
-import { Serves } from './Serves/Serves';
+import { useDispatch, useSelector } from 'react-redux';
+import { activeToggleSelector } from '../../Redux/Header/headerSelectors';
+import { activeToggleAction } from '../../Redux/Header/headerActions';
+import { useNavigate } from 'react-router-dom';
+import { Serves } from '../Serves/Serves';
+import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
+import { usersOnlineSelector } from '../../Redux/Header/headerSelectors';
 
-export const Header: React.FC = () => {
-
-  const [isSwitchOn, setIsSwitchOn] = useState(false);
-
-  const changeColorState = () => {
-    setIsSwitchOn((prevState) => !prevState);
-  }
-
-  const [isServesActived, setIsServesActived] = useState(true);
+const Header: React.FC = () => {
+  const [isServesActived, setIsServesActived] = useState(false);
 
   const servesRotate = () => {
-    setIsServesActived((prevState) => !prevState);
+    setIsServesActived((prevState) => !prevState)
+  };
 
-  }
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchOnlineUsers() as any)
+  }, []);
+
+  const users = useSelector(usersOnlineSelector)
+
+  console.log(users);
+
+  const toggleDispatch = useDispatch();
+  const isToggle = useSelector(activeToggleSelector);
+  const navigate = useNavigate();
+
+  const onToggle = () => {
+    toggleDispatch(activeToggleAction());
+    if (isToggle) {
+      return navigate("/");
+    }
+    return navigate("/toggle-u");
+  };
 
   return (
     <header className='header'>
@@ -40,19 +60,21 @@ export const Header: React.FC = () => {
             </a>
             <div className="logo__online">
               <img className='logo__online-icon' src={online} width={20} height={'auto'} alt="онлайн" />
-              <span className='logo__online-text'>459</span>
+              <span className='logo__online-text'>{users}</span>
             </div>
           </li>
           <li className='navigation__item navigation__item-state'>
-            <p style={{ color: isSwitchOn ? '' : 'blue' }} className='text-f'>Заказчикам</p>
+            <p style={{ color: isToggle ? '' : '#325feb' }} className='text-f'>Владельцу канала</p>
             <Switch
-              onChange={changeColorState}
-              style={{ color: 'blue' }} />
-            <p style={{ color: isSwitchOn ? 'blue' : '' }} className='text-u'>Владельцу канала</p>
+              onChange={onToggle}
+              style={{ color: 'blue' }}
+              checked={isToggle}
+            />
+            <p style={{ color: isToggle ? '#325feb' : '' }} className='text-u'>Заказчикам</p>
           </li>
           <li className='navigation__item navigation__item-serves'>
             {isServesActived && <Serves />}
-            <p className='text-serves'> Cервисы</p>
+            <p onClick={servesRotate} className='text-serves'> Cервисы</p>
             <DownOutlined
               onClick={servesRotate} className='logo-serves'
               style={{
@@ -64,14 +86,18 @@ export const Header: React.FC = () => {
               }} />
           </li>
           <li className='navigation__item'>
-            <button type='button' className='button-reg'>Регистрация</button>
+            <button type='button' className='button-reg button__yellow-animation'>Регистрация</button>
           </li>
           <li className='navigation__item navigation__item-enter'>
-            <button type='button' className='button-enter'>Войти</button>
-            <LoginOutlined className='navigation__item-enter-logo' />
+            <div className='enter__button'>
+              Войти
+              <LoginOutlined className='enter__logo' />
+            </div>
           </li>
         </ul>
       </nav>
     </header>
   )
 }
+
+export default Header;

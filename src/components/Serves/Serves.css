@@ -1,9 +1,10 @@
 .popap__container {
+  z-index: 22;
   display: block;
   position: absolute;
   min-width: 360px;
   max-width: 430px;
-  top: 35px;
+  top: 65px;
   right: 0px;
   border-radius: 4px;
   box-shadow: 0px 0px 1px rgba(0,0,0,0.5), 0px 2px 4px rgba(34,34,34,0.12);
@@ -12,6 +13,9 @@
   font-family: 'Raleway', sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
+  background-color: #fff;
+  transition: all 500ms ease-in;
+  max-height: calc(100vh - 96px);
 }
 
 a {

@@ -1,0 +1,157 @@
+.customers__main {
+  display: block;
+}
+
+.customers__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 90px;
+}
+
+.customers__advertising {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.customers__advertising-left {
+  width: 50%;
+}
+
+.advertising-left__title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 130%;
+  color: #111;
+  margin-bottom: 26px;
+  max-width: 560px;
+}
+
+.advertising-left__title-yellow {
+  background-color: #FBB040;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.advertising-left__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #657791;
+  max-width: 480px;
+}
+
+.advertising-left__info {
+  margin-top: 34px;
+  display: flex;
+}
+
+.advertising-left__info li:not(:last-child) {
+  margin-right: 46px;
+}
+
+.info__users {
+  display: block;
+}
+
+.users__count {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 130%;
+  color: #111;
+}
+
+.users__online, 
+.users__month {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  color: #111;
+  background: #10F09F;
+  border-radius: 2px;
+  padding: 3px 6px;
+  display: inline-block;
+}
+
+.users__online {
+  display: inline-block;
+}
+
+.users__online img {
+  margin-right: 5px;
+}
+
+.users__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: #657791;
+  margin-top: 6px;
+}
+
+b {
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.advertising-left__buy {
+  margin-top: 36px;
+  max-width: 220px;
+  height: 56px;
+  background: #325FEB;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  padding: 0px 10px;
+}
+
+.customers__advertising-right {
+  width: 50%;
+  margin: 60px 0 0 170px;
+}
+
+.customers__slider {
+  padding: 0 0 80px;
+}
+
+.slider__title {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.slider__title-text {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 130%;
+  color: #111;
+}
+
+.slider__title-line {
+  width: 250px;
+  height: 2px;
+  background-color: #EAEFFC;
+  margin-left: 20px;
+}
+
+.slick-next {
+  color: black;
+  background-color: red;
+}

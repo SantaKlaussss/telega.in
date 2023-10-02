@@ -1,17 +1,20 @@
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
-import { ConfigProvider } from 'antd';
+import { MantineProvider } from '@mantine/core';
 import './styles/reset.css';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from './components/Header/Redux';
+import rootReducer from './Redux';
+import '@mantine/core/styles.css';
+import '@mantine/carousel/styles.css';
+import { Api } from './Api';
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk)),
-  );
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(new Api())))
+);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -19,8 +22,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Provider store={store}>
-    <ConfigProvider >
+    <MantineProvider>
       <App />
-    </ConfigProvider>
+    </MantineProvider>
   </Provider>
 );

@@ -1,0 +1,8 @@
+.mantine-focus-auto:first-child {
+  display: none;
+}
+
+.mantine-focus-auto:last-child {
+  margin-left: auto;
+  border: none;
+}
