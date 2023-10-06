@@ -10,6 +10,7 @@
   display: flex;
   justify-content: space-between;
   max-width: calc(100% - 48px);
+  padding: 24px 0 24px 82px;
 }
 
 .item__title {
@@ -20,16 +21,16 @@
 }
 
 .footer__item {
-  margin-right: 12px;  max-width: 212px;
+  margin-right: 12px;  
+  max-width: 212px;
   cursor: pointer;
 }
 
 .telega__info {
   width: 180px;
 }
+
 .list__items {
-  padding-left: 0;
-  margin-bottom: 0;
   list-style: none;
 }
 

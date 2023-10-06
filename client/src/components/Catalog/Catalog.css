@@ -27,6 +27,7 @@
 .filter_title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .title_text {
@@ -37,7 +38,7 @@
 }
 
 .filter_svg {
-  color: red
+  color: #eb5757;
 }
 
 .input_search {
@@ -65,7 +66,7 @@
 .input_search-svg {
   position: absolute;
   left: 336px;
-  bottom: 695px;
+  bottom: 678px;
   padding-left: 8px;
   border-left: 1px solid #cccccc;
   cursor: pointer;
@@ -102,7 +103,7 @@
 .input_select-svg {
   position: absolute;
   left: 352px;
-  top: 315px;
+  top: 330px;
 }
 
 .filter_unlock {
@@ -120,7 +121,6 @@
   max-width: 300px;
   justify-content: flex-start;
   align-items: center;
-  margin-top: 16px;
   margin-bottom: 8px;
 }
 

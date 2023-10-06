@@ -15,7 +15,7 @@ export const Catalog = () => {
           <div className="filter">
             <div className='filter_title'>
               <p className='title_text'>Фильтр</p>
-              <svg xmlns="http://www.w3.org/2000/svg" className='filter_svg' width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" className='filter_svg' width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
               <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
               <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
               <path d="M4 6l8 0"></path>
@@ -31,7 +31,7 @@ export const Catalog = () => {
             <div className='filter_input'>
               <div className="input_up">
                 <input type="text" placeholder='Поиск...' className='input_search'/>
-                <i className='input_search-svg'><img src="https://avatars.mds.yandex.net/i?id=b8abc4a2247a6997db1b0d6ec4a254cfc0d4c357-9148914-images-thumbs&n=13" alt=""  width={24}/></i>
+                <i className='input_search-svg'><img src="https://avatars.mds.yandex.net/i?id=b8abc4a2247a6997db1b0d6ec4a254cfc0d4c357-9148914-images-thumbs&n=13" alt=""  width={25}/></i>
               </div>
               
               <p className='title_input_down'>Тематики</p>
