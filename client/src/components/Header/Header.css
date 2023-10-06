@@ -28,7 +28,6 @@
 
 .logo__online {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   background-color: #10F09F;
   width: 60px;
@@ -40,6 +39,7 @@
   font-weight: 700;
   cursor: help;
   padding: 0 5px 0 10px;
+  justify-content: space-between;
 }
 
 .logo__online-icon {
@@ -48,7 +48,15 @@
 }
 
 .logo__online-text {
-  margin-bottom: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  margin-right: 20px;
+}
+
+.spinner {
+  
 }
 
 .navigation__item-state {

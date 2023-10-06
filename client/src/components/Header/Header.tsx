@@ -4,12 +4,13 @@ import { Switch } from 'antd';
 import online from '../../img/online.png';
 import { DownOutlined, LoginOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { activeToggleSelector } from '../../Redux/Header/headerSelectors';
-import { activeToggleAction } from '../../Redux/Header/headerActions';
+import { activeToggleSelector, fetchUsersIsOnlineSelector } from '../../Redux/Header/headerSelectors';
+import { activeToggleAction, isOnlineUsersErrorAction } from '../../Redux/Header/headerActions';
 import { useNavigate } from 'react-router-dom';
 import { Serves } from '../Serves/Serves';
 import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
 import { usersOnlineSelector } from '../../Redux/Header/headerSelectors';
+import { Preloader } from '../Preloader/Preloader';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
@@ -26,8 +27,6 @@ const Header: React.FC = () => {
 
   const users = useSelector(usersOnlineSelector)
 
-  console.log(users);
-
   const toggleDispatch = useDispatch();
   const isToggle = useSelector(activeToggleSelector);
   const navigate = useNavigate();
@@ -39,6 +38,9 @@ const Header: React.FC = () => {
     }
     return navigate("/toggle-u");
   };
+
+  const fetching = useSelector(fetchUsersIsOnlineSelector);
+  const fetchingError = useSelector(isOnlineUsersErrorAction);
 
   return (
     <header className='header'>
@@ -60,7 +62,8 @@ const Header: React.FC = () => {
             </a>
             <div className="logo__online">
               <img className='logo__online-icon' src={online} width={20} height={'auto'} alt="онлайн" />
-              <span className='logo__online-text'>{users}</span>
+              <p className='logo__online-text'>
+                { fetching ? < Preloader /> : users }</p>
             </div>
           </li>
           <li className='navigation__item navigation__item-state'>

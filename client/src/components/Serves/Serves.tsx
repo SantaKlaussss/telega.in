@@ -1,3 +1,4 @@
+import { Catalog } from '../Catalog/Catalog';
 import './Serves.css';
 import { AlertOutlined, BarChartOutlined, CommentOutlined, CrownOutlined, RedditOutlined, RiseOutlined } from '@ant-design/icons';
 
@@ -7,7 +8,7 @@ export const Serves = () => {
       <span className='popap__title'>Каталоги</span>
       <ul className='popap__items'>
         <li className='popap__item'>
-          <a href="">
+          <a href="/catalog">
             <CommentOutlined className='popap__item-log'/>
             <span className='popap__item-text'>Каталог каналов</span>
           </a>

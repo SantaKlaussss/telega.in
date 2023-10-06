@@ -40,3 +40,42 @@
   font-size: 14px;
   font-weight: 400;
 }
+
+.telega__sales__dep {
+  text-align: end;
+}
+
+.work__schedule {
+  color: black
+}
+
+.phone {
+  margin-bottom: 16px;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 800;
+  color: #325feb;
+}
+
+.cmc {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 800;
+  color: #325feb;
+}
+
+.icons {
+  margin-top: 32px;
+  display: flex;
+  justify-content: end;
+}
+
+.telegram {
+  margin-left: 20px;
+}
+
+.phone__img {
+  margin-right: 20px;
+}

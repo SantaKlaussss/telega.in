@@ -4,11 +4,13 @@ import online from '../../img/online.png';
 import main from '../../img/main.png';
 import { Slider } from '../Slider/Slider';
 import Footer from '../Footer/Footer';
+import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 
 export const Customers = () => {
   return (
     <>
       <Header />
+      <ScrollToTop/>
       <div className='customers__main'>
         <div className='customers__container'>
           <section className='customers__advertising'>

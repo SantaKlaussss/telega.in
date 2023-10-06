@@ -15,7 +15,7 @@ export const fetchOnlineUsers = () => (dispatch: any, getState: any, api: any) =
   return api.getOnlineUsers()
     .then((res: any) => {
       if (res.status === 200) {
-        dispatch(isOnlineUsersSuccessAction(res.data.length))
+        dispatch(isOnlineUsersSuccessAction(res.data.data))
       };
     })
     .catch((err: any) => {

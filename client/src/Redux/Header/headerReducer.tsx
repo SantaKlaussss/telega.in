@@ -36,6 +36,7 @@ export function header(state: initialStateType = initialState, action: any) {
         isOnlineUsersError: false,
       }
     case 'ONLINE__ERROR':
+      console.log('Errors')
       return {
         ...state,
         isOnlineUsersFetching: false,

@@ -61,22 +61,22 @@ const Footer = () => {
           <p className='item__title'>Отдел продаж</p>
           <p className='work__schedule'>Пн-Пт: C 09:00 до 18:00</p>
           <a href="/" className='phone'>
-            <img src={phone} height={16} alt="phone" />
+            <img src={phone} height={16} alt="phone" className='phone__img'/>
             <p>8(800)707-63-15</p>
           </a>
           <a href="/" className='phone'>
-            <img src={phone} height={16} alt="phone" />
+            <img src={phone} height={16} alt="phone" className='phone__img' />
             <p>+7(495)818-62-50</p>
           </a>
-          <p>Круглосуточно</p>
-          <a href="/" className='cmc'>
-            <img src={cmc} alt="cmc" />
+          <p className='work__schedule'>Круглосуточно</p>
+          <div className='cmc'>
+            <img src={cmc} alt="cmc" style={{marginRight: '10px'}}/>
             info@telega.in
-          </a>
-          <a href="/">
-            <img src={youtube} width={20} alt="youtube" />
-            <img src={telegram} width={20} alt="telegram" />
-          </a>
+          </div>
+          <div className='icons'>
+            <img src={youtube} width={32} alt="youtube" className='youtube' />
+            <img src={telegram} width={32} alt="telegram" className='telegram' />
+          </div>
 
         </div>
       </nav>
