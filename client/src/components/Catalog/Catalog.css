@@ -1,8 +1,15 @@
-.container {
-  padding-left: 82px;
-  box-sizing: border-box;
+.main_pages {
+  position: relative;
   background-color: #F4F4F4;
   padding-bottom: 48px;
+}
+
+.container {
+  box-sizing: border-box;
+  max-width: calc(100% - 48px);;
+  min-height: 500px;
+  padding: 0px 24px;
+  display: block;
 }
 
 .catalog_title {
@@ -16,12 +23,92 @@
   text-align: center;
 }
 
-.catalog_info {
+.info_items {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info_item {
+  padding: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: 6px;
+  color: #39414e;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.info_item-chanels {
+  font-size: 24px;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  cursor: auto;
+}
+
+.info_item-count {
+  background-color: #fff;
+  padding: 2px 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  font-weight: 700;
+  margin-left: 4px;
+  cursor: auto;
+  min-width: 75px;
+}
+
+.info_item-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background-color: #fbb040;
+  color: #000;
+  cursor: pointer;
+  margin-left: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.info_item-rating span {
+  margin-right: 7px;
+}
+
+.info_item-selected {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 2px solid #325feb;
+  border-radius: 8px;
+  margin-left: 24px;
+  font-size: 24px;
+  color: #325feb;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+.info_item-selected:hover {
+  color: white;
+  background-color: #325feb;
+  transition: all 250ms ease-in-out;
+}
+
+.catalog_container {
+  margin-top: 20px;
+  max-width: 1400px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 60px;
+  column-gap: 24px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .filter {
-  max-width: 300px;
+  margin-bottom: -120px;
 }
 
 .filter_title {
@@ -39,6 +126,11 @@
 
 .filter_svg {
   color: #eb5757;
+  cursor: pointer;
+}
+
+.input_up {
+  position: relative;
 }
 
 .input_search {
@@ -55,7 +147,6 @@
   box-shadow: inset 0 0 0 2px #788394;
   border-radius: 8px;
   min-width: 300px;
-  margin-top: 16px;
   line-height: 26px;
 }
 
@@ -65,8 +156,8 @@
 
 .input_search-svg {
   position: absolute;
-  left: 336px;
-  bottom: 678px;
+  right: 13px;
+  bottom: 10px;
   padding-left: 8px;
   border-left: 1px solid #cccccc;
   cursor: pointer;
@@ -79,6 +170,11 @@
   margin-bottom: 8px;
   margin-top: 16px;
 }
+
+.input_down {
+  position: relative;
+}
+
 
 .input_select {
   position: relative;
@@ -102,8 +198,8 @@
 
 .input_select-svg {
   position: absolute;
-  left: 352px;
-  top: 330px;
+  right: 10px;
+  bottom: 3px;
 }
 
 .filter_unlock {
@@ -139,16 +235,14 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  margin-left: 7px;
 }
 
 .unlock_description {
   color: #39414e;
   margin-bottom: 20px;
-  font-family: 'Raleway', sans-serif !important;
   font-size: 16px;
   line-height: 22px;
-  font-weight: 500;
-  max-width: 300px;
 }
 
 .unlock_btn {
@@ -166,7 +260,7 @@
   line-height: 18px;
   font-weight: 600;
   padding: 12px;
-  min-width: 268px;
+  width: 268px;
 }
 
 .unlock_btn:hover {
@@ -174,4 +268,8 @@
   color: white;
   border: none;
   transition: all 450ms ease-in-out;
+}
+
+.on_hover_yellow:hover {
+  background-color: #fbb040;
 }
