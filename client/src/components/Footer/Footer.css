@@ -1,0 +1,82 @@
+.footer {
+  background-color: #eaeffc;
+  padding: 24px 0;
+  color: #657791;
+  font-family: 'Raleway', sans-serif;
+  line-height: 120%;
+}
+
+.footer__items {
+  display: flex;
+  justify-content: space-between;
+  max-width: calc(100% - 48px);
+  padding: 24px 0 24px 82px;
+}
+
+.item__title {
+  margin-bottom: 24px;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.footer__item {
+  margin-right: 12px;  
+  max-width: 212px;
+  cursor: pointer;
+}
+
+.telega__info {
+  width: 180px;
+}
+
+.list__items {
+  list-style: none;
+}
+
+.list__item {
+  line-height: 20px;
+  margin-bottom: 4px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.telega__sales__dep {
+  text-align: end;
+}
+
+.work__schedule {
+  color: black
+}
+
+.phone {
+  margin-bottom: 16px;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 800;
+  color: #325feb;
+}
+
+.cmc {
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 800;
+  color: #325feb;
+}
+
+.icons {
+  margin-top: 32px;
+  display: flex;
+  justify-content: end;
+}
+
+.telegram {
+  margin-left: 20px;
+}
+
+.phone__img {
+  margin-right: 20px;
+}

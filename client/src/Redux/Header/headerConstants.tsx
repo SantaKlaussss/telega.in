@@ -1,0 +1,4 @@
+export const ACTIVE_TOGGLE = 'ACTIVE_TOGGLE';
+export const FETCH_ONLINE_USERS = 'FETCH_ONLINE_USERS';
+export const ONLINE_SUCCESS = 'ONLINE_SUCCESS';
+export const ONLINE__ERROR = 'ONLINE__ERROR';
