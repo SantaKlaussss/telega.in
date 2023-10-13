@@ -1,29 +1,26 @@
 import './ScrollToTop.css';
 import arrow from '../../img/arrow.png';
-
-window.addEventListener("scroll", trackScroll);
-const goTopBtn = document.querySelector(".scroll");
-
-function trackScroll() {
-  const offset = window.scrollY;
-  if (offset > 150) {
-    if (goTopBtn)
-    goTopBtn.classList.add('scroll--show');
-  } else if (goTopBtn) {
-    goTopBtn.classList.remove('scroll--show');
-  }
-}
-
-function goTop () {
-  if (window.scrollY > 0) {
-    window.scrollBy(0, -10);
-    setTimeout(goTop, 0)
-  }
-}
+import { useEffect, useState } from 'react';
 
 export const ScrollToTop = () => {
+  const [currentScrollY, setCurrentScrollY] = useState(0);
 
-  return (
+  function goTop() {
+    if (currentScrollY > 0) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  useEffect(() => {
+    const changeScroll = () => { setCurrentScrollY(window.scrollY) };
+    window.addEventListener('scroll', changeScroll);
+
+    return () => {
+      window.removeEventListener('scroll', changeScroll);
+    };
+  })
+
+  return currentScrollY > 150 ? (
     <img className='scroll' src={arrow} alt='arrow' onClick={goTop}/>
-  )
+  ) : null
 };
