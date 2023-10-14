@@ -14,4 +14,13 @@ export class Api {
       responseType: "json",
     })
   };
+
+  getChannels() {
+    return this.api.get('/channels', {
+      headers: {
+        "x-apikey": "API_KEY",
+      },
+      responseType: "json",
+    })
+  };
 }

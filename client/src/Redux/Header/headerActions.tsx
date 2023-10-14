@@ -19,6 +19,7 @@ export const fetchOnlineUsers = () => (dispatch: any, getState: any, api: any) =
       };
     })
     .catch((err: any) => {
+      console.log(err)
       if (err.response.status !== 200) {
         dispatch(isOnlineUsersErrorAction())
       };

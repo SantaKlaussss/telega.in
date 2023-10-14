@@ -11,6 +11,7 @@ import { Serves } from '../Serves/Serves';
 import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
 import { usersOnlineSelector } from '../../Redux/Header/headerSelectors';
 import { Preloader } from '../Preloader/Preloader';
+import { Login } from '../Login/Login';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
@@ -18,6 +19,12 @@ const Header: React.FC = () => {
   const servesRotate = () => {
     setIsServesActived((prevState) => !prevState)
   };
+
+
+  const [isLogin, setIsLogin] = useState(false);
+  const loginToggle = () => {
+    setIsLogin((prevState) => !prevState)
+  }
 
   const dispatch = useDispatch()
 
@@ -44,6 +51,13 @@ const Header: React.FC = () => {
 
   return (
     <header className='header'>
+      <div
+        style={{
+          display: isLogin ? 'block' : 'none'
+        }}
+        onClick={loginToggle}>
+        <Login />
+      </div>
       <nav className='navigation'>
         <ul className='navigation__items'>
           <li className='navigation__item'>
@@ -92,7 +106,7 @@ const Header: React.FC = () => {
             <button type='button' className='button-reg button__yellow-animation'>Регистрация</button>
           </li>
           <li className='navigation__item navigation__item-enter'>
-            <div className='enter__button'>
+            <div className='enter__button' onClick={loginToggle}>
               Войти
               <LoginOutlined className='enter__logo' />
             </div>

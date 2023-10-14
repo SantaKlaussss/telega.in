@@ -3,22 +3,31 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { FiChevronDown, FiSearch } from "react-icons/fi";
-import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi"; 
-import { useState } from 'react';
+import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
+import { useState, useEffect } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
+import { fetchChannels } from '../../Redux/Catalog/catalogActions';
+import { useDispatch } from 'react-redux';
 
 export const Catalog = () => {
   const [isRating, setIsRating] = useState(false);
-  const ratingChange:any = () => {
+  const ratingChange: any = () => {
     setIsRating((prevState) => !prevState)
-  }
+  };
+
+  const dispatch = useDispatch()
+  console.log('asfsfs')
+  useEffect(() => {
+    dispatch(fetchChannels() as any);
+  }, []);
+
   return (
     <>
-      <Header/>
+      <Header />
       <div className="main_pages">
         <div className='container'>
           <h1 className='catalog_title'>Каталог Telegram-каналов</h1>
-          
+
           <div className='catalog_container'>
             <div className='filter_title'>
               <p className='title_text'>Фильтр</p>
@@ -58,37 +67,37 @@ export const Catalog = () => {
               <div className="info_item info_item-selected"><PiChecksLight /></div>
             </div>
             <div className="filter">
-              
+
               <div className='filter_input'>
                 <div className="input_up">
-                  <input type="text" placeholder='Поиск...' className='input_search'/>
-                  <i className='input_search-svg'><FiSearch size={20} color='rgb(50, 95, 235)'/></i>
+                  <input type="text" placeholder='Поиск...' className='input_search' />
+                  <i className='input_search-svg'><FiSearch size={20} color='rgb(50, 95, 235)' /></i>
                 </div>
-                
+
                 <p className='title_input_down'>Тематики</p>
                 <div className='input_down'>
-                  <input type="button" value='Все тематики' title='' className='input_select'/>
+                  <input type="button" value='Все тематики' title='' className='input_select' />
                   <i className='input_select-svg'><FiChevronDown size={25} color='rgb(50, 95, 235)' /></i>
                 </div>
               </div>
               <div className='filter_unlock'>
                 <div className='unlock_title_group'>
-                  <PiLockBold color='rgb(50, 95, 235)'/>
+                  <PiLockBold color='rgb(50, 95, 235)' />
                   <span className='unlock_title'>Разблокируйте фильтры</span>
                 </div>
-                
+
                 <p className='unlock_description'>Войдите или зарегистрируйтесь, чтобы получить полный доступ к фильтрам</p>
                 <button className='unlock_btn'>Зарегистрироваться</button>
               </div>
             </div>
             <div className='catalog_items'>
-              <CatalogItem/>
+              <CatalogItem />
             </div>
           </div>
         </div>
       </div>
-      <Footer/>
-      <ScrollToTop/>
+      <Footer />
+      <ScrollToTop />
     </>
   )
 };
