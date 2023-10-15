@@ -4,6 +4,7 @@ export const channels = {
   logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
   name: 'Москва live',
   description: 'Известный московский канал',
+  category: 'Новости и СМИ',
   feature: {
     sale: false,
     authorFamous: false,

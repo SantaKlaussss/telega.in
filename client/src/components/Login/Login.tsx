@@ -4,7 +4,8 @@ import { FiEye, FiMail, FiX } from 'react-icons/fi';
 
 export const Login:React.FC = () => {
   return (
-    <div className='login_container'>
+    <div className="background_wrapper">
+      <div className='login_container'>
       <FiX className='login_close'/>
       <div className='login_main'>
         <p className="title">Авторизация</p>
@@ -24,5 +25,7 @@ export const Login:React.FC = () => {
         </div>
       </div>
     </div>
+    </div>
+    
   )
 }

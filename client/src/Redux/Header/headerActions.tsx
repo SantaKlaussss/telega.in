@@ -1,11 +1,8 @@
 import * as actions from './headerConstants';
 
 export const activeToggleAction = () => ({ type: actions.ACTIVE_TOGGLE });
-
 export const fetchOnlineUsersRequest = () => ({ type: actions.FETCH_ONLINE_USERS });
-
 export const isOnlineUsersSuccessAction = (users: number) => ({ type: actions.ONLINE_SUCCESS, payload: users });
-
 export const isOnlineUsersErrorAction = () => ({ type: actions.ONLINE__ERROR });
 
 

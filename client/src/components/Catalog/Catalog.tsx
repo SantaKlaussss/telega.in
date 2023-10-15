@@ -4,22 +4,14 @@ import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { FiChevronDown, FiSearch } from "react-icons/fi";
 import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
-import { fetchChannels } from '../../Redux/Catalog/catalogActions';
-import { useDispatch } from 'react-redux';
 
 export const Catalog = () => {
   const [isRating, setIsRating] = useState(false);
   const ratingChange: any = () => {
     setIsRating((prevState) => !prevState)
   };
-
-  const dispatch = useDispatch()
-  console.log('asfsfs')
-  useEffect(() => {
-    dispatch(fetchChannels() as any);
-  }, []);
 
   return (
     <>

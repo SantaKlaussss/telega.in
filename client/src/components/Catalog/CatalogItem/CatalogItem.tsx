@@ -1,5 +1,5 @@
 import './CatalogItem.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiTwotoneTrophy } from "react-icons/ai";
 import { FaRegGem } from "react-icons/fa";
 import { RiHomeLine, RiPercentLine } from "react-icons/ri";
@@ -7,9 +7,20 @@ import { HiOutlineUser } from "react-icons/hi";
 import { FcBusinesswoman } from 'react-icons/fc';
 import { BsFillCartPlusFill, BsFillPersonFill } from "react-icons/bs";
 import { FiChevronDown } from 'react-icons/fi';
-import { PiDotsThreeBold, PiDotsThreeOutlineDuotone } from 'react-icons/pi';
+import { PiDotsThreeBold } from 'react-icons/pi';
+import { useDispatch, useSelector } from 'react-redux';
+import { channelsSelector } from '../../../Redux/Catalog/catalogSelectors';
+import { fetchChannels } from '../../../Redux/Catalog/catalogActions';
 
 export const CatalogItem = () => {
+
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchChannels() as any);
+  }, []);
+
+  const channels = useSelector(channelsSelector);
+
   const [isSelect, setIsSelect] = useState(false);
   const formatSelect = (e:any) => {
     e.preventDefault()
@@ -21,6 +32,9 @@ export const CatalogItem = () => {
     e.preventDefault()
     setIsCount((prevState) => !prevState);
   }
+
+  console.log(channels)
+
   return (
     <>
     <div className="card_container">
@@ -28,20 +42,20 @@ export const CatalogItem = () => {
         <div className="card_item card_item-logo">
           <div className="logo_raiting">
               <AiTwotoneTrophy size={12}/>
-              <p>619.5</p>
+              <p>{channels.rating}</p>
           </div>
           <div className="logo_img">
               <FaRegGem className="logo_img-svg" />
               <a href="/">
-                <img src="https://telega.in/system/channels/avatars/000/104/567/original/photo_2023-03-01_14.38.21.jpeg" alt="moskov life"  />
+                <img src={channels.logo} alt={channels.name}  />
               </a>
           </div>
         </div>
         <div className="card_item card_item-name">
           <div className='name_info'>
-            <p className='name_title'>Москва Live</p>
-            <p className='name_description'>Известный московский канал</p> 
-            <p className='name_about_chanels'>Новости и СМИ</p>
+              <p className='name_title'>{channels.name}</p>
+              <p className='name_description'>{channels.description}</p> 
+              <p className='name_about_chanels'>{channels.category}</p>
           </div>
           <div className='name_logo'>
               <div className="logo_item logo_item-sale"><RiPercentLine /></div>
@@ -52,7 +66,7 @@ export const CatalogItem = () => {
         <div className="grey">
           <div className="card_item card_item-users">
               <span className="card_item-users_text small_title_text">Подписчики:</span><br />
-              <span className='card_item-users_count small_title_count'>1 011 697</span>
+              <span className='card_item-users_count small_title_count'>{channels.followers}</span>
               <div className='person'>
                 <span className='person_man'><BsFillPersonFill /></span><br />
                 <span className='person_woman'><FcBusinesswoman /></span>
@@ -61,13 +75,13 @@ export const CatalogItem = () => {
           </div>
           <div className="card_item card_item-views">
               <p className="card_item-views_text small_title_text">Просмотры:</p>
-              <p className='card_item-views_count small_title_count'>190K</p>
+              <p className='card_item-views_count small_title_count'>{channels.format['1/24'].views}K</p>
               <p className='card_item-er small_title_text'>ER:</p>
-              <p className="card_item-percent small_title_count">18.83%</p>
+              <p className="card_item-percent small_title_count">{channels.format.oneDay.er}%</p>
           </div>
           <div className="card_item card_item-cpv">
               <p className="card_item-cpv_text small_title_text">CPV:</p>
-              <p className='card_item-cpv_price small_title_count'>1.45 ₽</p>
+              <p className='card_item-cpv_price small_title_count'>{channels.format.oneDay.cpv} ₽</p>
           </div>
         </div>
         <div className="card_item card_item-price">
@@ -114,7 +128,7 @@ export const CatalogItem = () => {
             </div>
           </form>
             <div className='format_price'>
-              <p className='format_price-big'>276 000
+              <p className='format_price-big'>{channels.format['1/24'].price}
                 <span className='format_price-little'>.00</span>₽
               </p>
             </div>
