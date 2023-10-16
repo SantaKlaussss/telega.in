@@ -9,12 +9,14 @@
 }
 
 .login_container {
-  margin-top: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 580px;
+  height: 485px;
   z-index: 99;
   font-family: 'Raleway', sans-serif;
+  transform: translate(-50%, -50%);
 }
 
 .login_main {
@@ -36,7 +38,7 @@
 
 .login_close {
   position: absolute;
-  z-index: 2;
+  z-index: 43543;
   top: 10px;
   right: 10px;
   font-size: 23px;

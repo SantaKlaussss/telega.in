@@ -6,9 +6,8 @@
 
 .container {
   box-sizing: border-box;
-  max-width: calc(100% - 48px);;
+  width: 100%;
   min-height: 500px;
-  padding: 0px 24px;
   display: block;
 }
 

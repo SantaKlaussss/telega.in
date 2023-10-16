@@ -33,6 +33,10 @@
   margin-left: 3px;
 }
 
+.logo_raiting-svg {
+  margin-right: 5px;
+}
+
 .logo_img {
   display: flex;
 }
@@ -45,16 +49,18 @@
 
 .logo_img img{
   width: 51px;
-  height: auto;
+  height: 51px;
   border-radius: 50%;
   border: 2px solid rgb(148, 208, 228);
   position: absolute;
   left: 10px;
+  padding: 2px;
 }
 
 .card_item-name {
   margin-left: 8px;
   margin-right: 25px;
+  min-width: 300px;
 }
 
 .name_info {
@@ -246,7 +252,7 @@
 
 .input_select-svg {
   position: absolute;
-  top: 1px;
+  top: 7px;
   right: 9px;
 }
 
@@ -262,6 +268,7 @@
   min-width: 140px;
   top: 0;
   border-radius: 8px;
+  z-index: 22;
 }
 
 .left_show li {
@@ -293,6 +300,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 240px;
+  z-index: 20;
 }
 
 .right_show li {

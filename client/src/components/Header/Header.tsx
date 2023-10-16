@@ -51,12 +51,8 @@ const Header: React.FC = () => {
 
   return (
     <header className='header'>
-      <div
-        style={{
-          display: isLogin ? 'block' : 'none'
-        }}
-        onClick={loginToggle}>
-        <Login />
+      <div style={{display: isLogin ? 'block' : 'none'}}>
+        <Login loginToggle={loginToggle} />
       </div>
       <nav className='navigation'>
         <ul className='navigation__items'>

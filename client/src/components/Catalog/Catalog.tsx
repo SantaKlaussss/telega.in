@@ -4,8 +4,11 @@ import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { FiChevronDown, FiSearch } from "react-icons/fi";
 import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchChannels } from '../../Redux/Catalog/catalogActions';
+import { channelsSelector } from '../../Redux/Catalog/catalogSelectors';
 
 export const Catalog = () => {
   const [isRating, setIsRating] = useState(false);
@@ -13,6 +16,12 @@ export const Catalog = () => {
     setIsRating((prevState) => !prevState)
   };
 
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(fetchChannels() as any);
+  }, []);
+
+  const channels = useSelector(channelsSelector);
   return (
     <>
       <Header />
@@ -83,12 +92,14 @@ export const Catalog = () => {
               </div>
             </div>
             <div className='catalog_items'>
-              <CatalogItem />
+              {channels.map((channel: any) => {
+                return <CatalogItem channel={channel} />
+              })}
             </div>
           </div>
+          <Footer />
         </div>
       </div>
-      <Footer />
       <ScrollToTop />
     </>
   )
