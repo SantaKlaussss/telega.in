@@ -34,7 +34,7 @@ export const CatalogItem: React.FC<catalogItemProps> = ({ channel }) => {
     setCurrentType(e.target.dataset.typeformat)
   }
 
-  const [countFormat, setCountFormat] = useState('1')
+  const [countformat, setCountFormat] = useState('1')
   const handleCount = (e:any) => {
     setCountFormat(e.target.dataset.countformat)
   }
@@ -97,7 +97,7 @@ export const CatalogItem: React.FC<catalogItemProps> = ({ channel }) => {
                     <ul className='left_show'
                       style={{ display: isSelect ? 'block' : 'none' }}>
                         {Object.keys(format).map((item) => {
-                          return <li className='selected' key={id} data-typeFormat={item} onClick={handlerForamt}>{item}</li>
+                          return <li className='selected' key={item} data-typeformat={item} onClick={handlerForamt}>{item}</li>
                         })}
                     </ul>
                   </div>
@@ -106,23 +106,23 @@ export const CatalogItem: React.FC<catalogItemProps> = ({ channel }) => {
               <div className='format_right'>
                 <p className='title_format-right small_title_text'>Колличество:</p>
                 <div className="format_right-wrapper" onClick={countSelect}>
-                  <button className='format_right_select' >{countFormat}</button>
+                  <button className='format_right_select' >{countformat}</button>
                   <i className='input_select-svg'><FiChevronDown size={25} color='rgb(50, 95, 235)' /></i>
                   <div className="list_items">
                     <ul
                       className='right_show'
                       style={{ display: isCount ? 'block' : 'none' }}>
-                      <li className='selected' data-countFormat='1' onClick={handleCount}>1</li>
-                      <li className='selected' data-countFormat='2' onClick={handleCount}>2</li>
-                      <li className='selected' data-countFormat='3' onClick={handleCount}>3</li>
-                      <li className='selected' data-countFormat='4' onClick={handleCount}>4</li>
-                      <li className='selected' data-countFormat='5' onClick={handleCount}>5</li>
-                      <li className='selected' data-countFormat='6' onClick={handleCount}>6</li>
-                      <li className='selected' data-countFormat='7' onClick={handleCount}>7</li>
-                      <li className='selected' data-countFormat='8' onClick={handleCount}>8</li>
-                      <li className='selected' data-countFormat='9' onClick={handleCount}>9</li>
-                      <li className='selected' data-countFormat='10' onClick={handleCount}>10</li>
-                      <li className='selected' data-countFormat='15' onClick={handleCount}>15</li>
+                      <li className='selected' data-countformat='1' onClick={handleCount}>1</li>
+                      <li className='selected' data-countformat='2' onClick={handleCount}>2</li>
+                      <li className='selected' data-countformat='3' onClick={handleCount}>3</li>
+                      <li className='selected' data-countformat='4' onClick={handleCount}>4</li>
+                      <li className='selected' data-countformat='5' onClick={handleCount}>5</li>
+                      <li className='selected' data-countformat='6' onClick={handleCount}>6</li>
+                      <li className='selected' data-countformat='7' onClick={handleCount}>7</li>
+                      <li className='selected' data-countformat='8' onClick={handleCount}>8</li>
+                      <li className='selected' data-countformat='9' onClick={handleCount}>9</li>
+                      <li className='selected' data-countformat='10' onClick={handleCount}>10</li>
+                      <li className='selected' data-countformat='15' onClick={handleCount}>15</li>
                     </ul>
                   </div>
                 </div>

@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchChannels } from '../../Redux/Catalog/catalogActions';
-import { channelsSelector } from '../../Redux/Catalog/catalogSelectors';
+import { channelsSelector, currentPageSelector } from '../../Redux/Catalog/catalogSelectors';
+import Pagination from '../Pagination/Pagination';
 
 export const Catalog = () => {
   const [isRating, setIsRating] = useState(false);
@@ -16,9 +17,12 @@ export const Catalog = () => {
     setIsRating((prevState) => !prevState)
   };
 
+  let currentPage = useSelector(currentPageSelector);
+  console.log(currentPage)
+
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchChannels() as any);
+    dispatch(fetchChannels(currentPage, 30) as any);
   }, []);
 
   const channels = useSelector(channelsSelector);
@@ -32,7 +36,7 @@ export const Catalog = () => {
           <div className='catalog_container'>
             <div className='filter_title'>
               <p className='title_text'>Фильтр</p>
-              <svg xmlns="http://www.w3.org/2000/svg" className='filter_svg' width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <svg xmlns="http://www.w3.org/2000/svg" className='filter_svg' width="30" height="30" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                 <path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"></path>
                 <path d="M4 6l8 0"></path>
@@ -93,9 +97,10 @@ export const Catalog = () => {
             </div>
             <div className='catalog_items'>
               {channels.map((channel: any) => {
-                return <CatalogItem channel={channel} />
+                return <CatalogItem key={channel.id} channel={channel} />
               })}
             </div>
+            <Pagination />
           </div>
           <Footer />
         </div>

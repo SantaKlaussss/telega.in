@@ -5,8 +5,6 @@ import main from '../../img/main.png';
 import { Slider } from '../Slider/Slider';
 import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
-import { Login } from '../Login/Login';
-import { useState } from 'react';
 
 export const Customers:React.FC = () => {
 

@@ -34,7 +34,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 2,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -68,7 +68,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 3,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -102,7 +102,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 4,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -136,7 +136,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 5,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -170,7 +170,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 6,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -204,7 +204,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 7,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -238,7 +238,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 8,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -272,7 +272,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 9,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -306,7 +306,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 10,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -340,7 +340,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 11,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -374,7 +374,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 12,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -408,7 +408,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 13,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -442,7 +442,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 14,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -476,7 +476,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 15,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -510,7 +510,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 16,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -544,7 +544,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 17,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',
@@ -578,7 +578,7 @@ export const channels = [
     },
   },
   {
-    id: 1,
+    id: 18,
     rating: 500,
     logo: 'https://gas-kvas.com/uploads/posts/2023-02/1675489758_gas-kvas-com-p-izobrazheniya-i-kartinki-na-fonovii-risuno-41.jpg',
     name: 'Москва live',

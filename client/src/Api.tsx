@@ -14,9 +14,18 @@ export class Api {
       responseType: "json",
     })
   };
+  
+  getChannels(currentPage: number, pageSize: number) {
+    return this.api.get(`/channels?page=${currentPage}&pageSize=${pageSize}`, {
+      headers: {
+        "x-apikey": "API_KEY",
+      },
+      responseType: "json",
+    })
+  };
 
-  getChannels() {
-    return this.api.get('/channels', {
+  getPages() {
+    return this.api.get('/pages', {
       headers: {
         "x-apikey": "API_KEY",
       },

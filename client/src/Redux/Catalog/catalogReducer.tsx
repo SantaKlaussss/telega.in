@@ -1,16 +1,16 @@
 import { initialStateChannelsType } from '../Types';
-import * as action from './catalogActions';
 
 export const initialStateChannels = {
   channels: [],
+  pages: [],
   isLoading: false,
   isChannelsError: false,
+  currentPage: 1,
 }
 
 export function catalog(state: initialStateChannelsType = initialStateChannels, action: any) {
   switch (action.type) {
     case 'FETCH_CHANNELS':
-      console.log('запрос идет')
       return {
         ...state,
         channels: [],
@@ -18,19 +18,24 @@ export function catalog(state: initialStateChannelsType = initialStateChannels, 
         isChannelsError: false
       }
     case 'GET_DATA_SUCCESS':
-      console.log('запрос успешен')
       return {
         ...state,
         channels: action.payload,
         isLoading: false,
         isChannelsError: false,
       }
-    case 'CHANNELS__ERROR':
-      console.log('Errors')
+    case 'CHANNELS_ERROR':
       return {
         ...state,
         isLoading: false,
         isChannelsError: true,
+      }
+    case 'CURRENT_PAGE':
+      return {
+        ...state,
+        isLoading: false,
+        isChannelsError: false,
+        currentPage: action.payload,
       }
     default:
       return state
