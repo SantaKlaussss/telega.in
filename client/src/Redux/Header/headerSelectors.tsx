@@ -1,7 +1,9 @@
-export const activeToggleSelector = (state: any) => state.header.toggle;
+import { RootState } from "../Types";
 
-export const fetchUsersIsOnlineSelector = (state: any) => state.header.isOnlineUsersFetching;
+export const activeToggleSelector = (state: RootState) => state.header.toggle;
 
-export const usersOnlineSelector = (state: any) => state.header.onlineUsers;
+export const fetchUsersIsOnlineSelector = (state: RootState) => state.header.isOnlineUsersFetching;
 
-export const usersOnlineErrorSelector = (state: any) => state.header.isOnlineUsersError
+export const usersOnlineSelector = (state: RootState) => state.header.onlineUsers;
+
+export const usersOnlineErrorSelector = (state: RootState) => state.header.isOnlineUsersError

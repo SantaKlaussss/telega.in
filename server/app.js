@@ -1,7 +1,6 @@
 import express from 'express';
 import cors from 'cors';
 import {channels} from './channels.js';
-import { pages } from './pages.js';
 
 const app = express();
 
@@ -13,12 +12,11 @@ app.get('/onlineusers', (req, res) => {
 });
 
 app.get('/channels', (req, res) => {
-  res.json({ status: 200, data: channels });
+  let currentPage = req.query.currentPage;
+  let pageSize = req.query.pageSize;
+  res.json({ status: 200, data: channels, page:{currentPage, pageSize} });
 });
 
-app.get('/pages', (req, res) => {
-  res.json({ status: 200, data: pages });
-});
 
 const PORT = 8000;
 

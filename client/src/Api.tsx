@@ -23,13 +23,4 @@ export class Api {
       responseType: "json",
     })
   };
-
-  getPages() {
-    return this.api.get('/pages', {
-      headers: {
-        "x-apikey": "API_KEY",
-      },
-      responseType: "json",
-    })
-  };
-}
+};

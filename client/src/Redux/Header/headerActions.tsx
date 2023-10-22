@@ -1,9 +1,10 @@
+import { ACTIVE_TOGGLE_ACTION, FETCH_ONLINE_USERS_ACTION, ONLINE_ERROR_ACTION, ONLINE_SUCCESS_ACTION } from '../Types';
 import * as actions from './headerConstants';
 
-export const activeToggleAction = () => ({ type: actions.ACTIVE_TOGGLE });
-export const fetchOnlineUsersRequest = () => ({ type: actions.FETCH_ONLINE_USERS });
-export const isOnlineUsersSuccessAction = (users: number) => ({ type: actions.ONLINE_SUCCESS, payload: users });
-export const isOnlineUsersErrorAction = () => ({ type: actions.ONLINE__ERROR });
+export const activeToggleAction = (): ACTIVE_TOGGLE_ACTION => ({ type: actions.ACTIVE_TOGGLE });
+export const fetchOnlineUsersRequest = (): FETCH_ONLINE_USERS_ACTION => ({ type: actions.FETCH_ONLINE_USERS });
+export const isOnlineUsersSuccessAction = (users: number): ONLINE_SUCCESS_ACTION => ({ type: actions.ONLINE_SUCCESS, payload: users });
+export const isOnlineUsersErrorAction = (): ONLINE_ERROR_ACTION => ({ type: actions.ONLINE_ERROR });
 
 
 

@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchChannels } from '../../Redux/Catalog/catalogActions';
 import { channelsSelector, currentPageSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
+import { channelType } from '../../Redux/Types';
 
 export const Catalog = () => {
   const [isRating, setIsRating] = useState(false);
@@ -18,11 +19,10 @@ export const Catalog = () => {
   };
 
   let currentPage = useSelector(currentPageSelector);
-  console.log(currentPage)
 
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchChannels(currentPage, 30) as any);
+    dispatch(fetchChannels(currentPage, 3) as any);
   }, []);
 
   const channels = useSelector(channelsSelector);
@@ -96,7 +96,7 @@ export const Catalog = () => {
               </div>
             </div>
             <div className='catalog_items'>
-              {channels.map((channel: any) => {
+              {channels.map((channel: channelType) => {
                 return <CatalogItem key={channel.id} channel={channel} />
               })}
             </div>

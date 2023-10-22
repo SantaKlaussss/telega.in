@@ -1,4 +1,4 @@
-import { initialStateChannelsType } from '../Types';
+import { ActionsCatalog, initialStateChannelsType } from '../Types';
 
 export const initialStateChannels = {
   channels: [],
@@ -6,7 +6,7 @@ export const initialStateChannels = {
   isLoading: false,
   isChannelsError: false,
   currentPage: 1,
-}
+}; 
 
 export function catalog(state: initialStateChannelsType = initialStateChannels, action: any) {
   switch (action.type) {

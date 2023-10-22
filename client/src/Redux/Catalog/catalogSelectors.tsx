@@ -1,7 +1,6 @@
-export const fetchChannelsSelector = (state: any) => state.catalog.isLoading;
+import { RootState } from "../Types";
 
-export const channelsSelector = (state: any) => state.catalog.channels;
-
-export const channelsErrorSelector = (state: any) => state.catalog.isChannelsError
-
-export const currentPageSelector = (state: any) => state.catalog.currentPage
+export const fetchChannelsSelector = (state: RootState) => state.catalog.isLoading;
+export const channelsSelector = (state: RootState) => state.catalog.channels;
+export const channelsErrorSelector = (state: RootState) => state.catalog.isChannelsError;
+export const currentPageSelector = (state: RootState) => state.catalog.currentPage;

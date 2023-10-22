@@ -1,30 +1,24 @@
 import { useEffect, useState } from 'react';
 import './Pagination.css';
 import cn from 'classnames';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { currentPageSelector } from '../../Redux/Catalog/catalogSelectors';
+import { currentPageAction } from '../../Redux/Catalog/catalogActions';
 
 const Pagination = () => {
 
   const [isActive, setIsActive] = useState(false)
+  const dispatch = useDispatch();
+  let currentPage = useSelector(currentPageSelector);
   
   const onChangedPage = (p) => {
     setIsActive(true);
+    dispatch(currentPageAction(p))
   }
 
-  let currentPage = useSelector(currentPageSelector)
+  console.log(currentPage);
 
-  const pageSize = 10;
-  const totalGamePages = 50;
-  const portionSize = 3;
-
-  let pageCount = Math.ceil(totalGamePages / pageSize);
-
-  let pages = [];
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i)
-  }
-
+  const pages = [1,2]
   return (
     <div>
       {pages.map(p => (

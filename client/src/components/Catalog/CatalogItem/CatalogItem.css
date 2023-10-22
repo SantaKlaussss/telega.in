@@ -47,7 +47,7 @@
   font-weight: 800;
 }
 
-.logo_img img{
+.logo_img img {
   width: 51px;
   height: 51px;
   border-radius: 50%;
@@ -150,7 +150,6 @@
 .small_title_text {
   color: #808080;
   font-size: 12px;
-  padding-top: 5px;
 }
 
 .small_title_count {
