@@ -1,5 +1,5 @@
 import rootReducer from ".";
-import { CHANNELS_ERROR, CURRENT_PAGE, FETCH_CHANNELS, GET_DATA_SUCCESS, GET_REQUEST } from "./Catalog/catalogConstants";
+import { CHANNELS_ERROR, CURRENT_PAGE, FETCH_CHANNELS, GET_DATA_SUCCESS, GET_REQUEST, VALUE_SEARCH, VALUE_SORT } from "./Catalog/catalogConstants";
 import { ACTIVE_TOGGLE, FETCH_ONLINE_USERS, ONLINE_ERROR, ONLINE_SUCCESS } from "./Header/headerConstants";
 
 // initialStates
@@ -9,6 +9,8 @@ export type initialStateChannelsType = {
   isLoading: boolean,
   isChannelsError: boolean,
   currentPage: number,
+  valueSearch: string,
+  valueSort: null | string,
 };
 export type initialStateHeaderType = {
   toggle: boolean,
@@ -78,6 +80,8 @@ export type GET_REQUEST_ACTION = Action<typeof GET_REQUEST, void>;
 export type CHANNELS_ERROR_ACTION = Action<typeof CHANNELS_ERROR, void>;
 export type FETCH_CHANNELS_ACTION = Action<typeof FETCH_CHANNELS, void>;
 export type CURRENT_PAGE_ACTION = Action<typeof CURRENT_PAGE, pageType>;
+export type VALUE_SEARCH_ACTION = Action<typeof VALUE_SEARCH, string>;
+export type VALUE_SORT_ACTION = Action<typeof VALUE_SORT, string>;
 
 export type ACTIVE_TOGGLE_ACTION = Action<typeof ACTIVE_TOGGLE, void>;
 export type FETCH_ONLINE_USERS_ACTION = Action<typeof FETCH_ONLINE_USERS, void>;
@@ -86,3 +90,15 @@ export type ONLINE_ERROR_ACTION = Action<typeof ONLINE_ERROR, void>;
 
 // typing RootReducer
 export type RootState = ReturnType<typeof rootReducer>
+
+// Типизация пропсов для текстового Поисковика
+
+export type SearchPropsType = {
+  channels: Array<channelType>,
+}
+
+// enam для сортировки каналов
+export enum Sorts {
+  ASC = 'ASC',
+  DESC = 'DESC',
+} 

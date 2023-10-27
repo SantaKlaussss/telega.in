@@ -4,3 +4,5 @@ export const fetchChannelsSelector = (state: RootState) => state.catalog.isLoadi
 export const channelsSelector = (state: RootState) => state.catalog.channels;
 export const channelsErrorSelector = (state: RootState) => state.catalog.isChannelsError;
 export const currentPageSelector = (state: RootState) => state.catalog.currentPage;
+export const valueSearchSelector = (state: RootState) => state.catalog.valueSearch;
+export const valueSortSelector = (state: RootState) => state.catalog.valueSort;

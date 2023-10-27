@@ -8,9 +8,10 @@ import { FcBusinesswoman } from 'react-icons/fc';
 import { BsFillCartPlusFill, BsFillPersonFill } from "react-icons/bs";
 import { FiChevronDown } from 'react-icons/fi';
 import { PiDotsThreeBold } from 'react-icons/pi';
+import { Reorder } from 'framer-motion';
 
 type catalogItemProps = {
-  channel: any
+  channel: any,
 }
 
 export const CatalogItem: React.FC<catalogItemProps> = ({ channel }) => {
@@ -31,12 +32,12 @@ export const CatalogItem: React.FC<catalogItemProps> = ({ channel }) => {
 
   const [currentType, setCurrentType] = useState(Object.keys(format)[0]);
   const handlerForamt = (e: any) => {
-    setCurrentType(e.target.dataset.typeformat)
+    setCurrentType(e.target.dataset.typeformat);
   }
 
   const [countformat, setCountFormat] = useState('1')
   const handleCount = (e:any) => {
-    setCountFormat(e.target.dataset.countformat)
+    setCountFormat(e.target.dataset.countformat);
   }
 
   return (

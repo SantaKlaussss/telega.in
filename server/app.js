@@ -12,11 +12,11 @@ app.get('/onlineusers', (req, res) => {
 });
 
 app.get('/channels', (req, res) => {
-  let currentPage = req.query.currentPage;
+  let currentPage = req.query.page;
   let pageSize = req.query.pageSize;
-  res.json({ status: 200, data: channels, page:{currentPage, pageSize} });
+  
+  res.json({ status: 200, data: channels.slice((currentPage - 1) * pageSize, currentPage * pageSize)});
 });
-
 
 const PORT = 8000;
 

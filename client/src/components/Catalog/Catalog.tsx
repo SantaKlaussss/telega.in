@@ -7,25 +7,50 @@ import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
 import { useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchChannels } from '../../Redux/Catalog/catalogActions';
-import { channelsSelector, currentPageSelector } from '../../Redux/Catalog/catalogSelectors';
+import { fetchChannels, valueSearchAction } from '../../Redux/Catalog/catalogActions';
+import { channelsSelector, currentPageSelector, valueSearchSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
 import { channelType } from '../../Redux/Types';
+import { filtered, sortedRating } from './filter';
+import { Reorder } from 'framer-motion';
+import { List } from './blabla';
 
 export const Catalog = () => {
+  const channels = useSelector(channelsSelector);
+  const valueSearch = useSelector(valueSearchSelector)
+
+  const [framerItems, setFramerItems] = useState(channels)
+
+  //логика для сортировки
   const [isRating, setIsRating] = useState(false);
-  const ratingChange: any = () => {
-    setIsRating((prevState) => !prevState)
-  };
+  const [channelSort, setChannelSort] = useState(channels);
+
+  const ratingSorted: any = () => {
+    const sortedCards = sortedRating(channelSort);
+    setChannelSort(sortedCards);
+    setIsRating((prevState) => {
+      return !prevState;
+    })
+  }
 
   let currentPage = useSelector(currentPageSelector);
-
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchChannels(currentPage, 3) as any);
-  }, []);
+  }, [currentPage])
 
-  const channels = useSelector(channelsSelector);
+
+  // логика для фильтра
+
+  const valueSearchFilter = (e: any) => {
+    dispatch(valueSearchAction(e.target.value))
+  }
+
+  const filteredCards = filtered(valueSearch, channels);
+  console.log(valueSearch, "valueSearch");
+  console.log(channels, "channels");
+
+
   return (
     <>
       <Header />
@@ -52,7 +77,7 @@ export const Catalog = () => {
             <div className='info_items'>
               <div className="info_item info_item-chanels">Каналы</div>
               <div className="info_item info_item-count">12 953</div>
-              <div className="info_item info_item-rating" onClick={ratingChange}>
+              <div className="info_item info_item-rating" onClick={ratingSorted}>
                 <span>Рейтинг</span>
                 <PiTrendUpDuotone
                   size={20}
@@ -75,7 +100,11 @@ export const Catalog = () => {
 
               <div className='filter_input'>
                 <div className="input_up">
-                  <input type="text" placeholder='Поиск...' className='input_search' />
+                  <input
+                    type="text"
+                    placeholder='Поиск...'
+                    className='input_search'
+                    onChange={(e) => { valueSearchFilter(e) }} />
                   <i className='input_search-svg'><FiSearch size={20} color='rgb(50, 95, 235)' /></i>
                 </div>
 
@@ -95,16 +124,21 @@ export const Catalog = () => {
                 <button className='unlock_btn'>Зарегистрироваться</button>
               </div>
             </div>
-            <div className='catalog_items'>
-              {channels.map((channel: channelType) => {
-                return <CatalogItem key={channel.id} channel={channel} />
+            <Reorder.Group axis="y" values={framerItems} className='catalog_items' onReorder={setFramerItems}>
+              {filteredCards.map((channel: channelType) => {
+                return <Reorder.Item key={channel.id} value={framerItems} >
+                  <CatalogItem key={channel.id} channel={channel}/>
+                  </Reorder.Item>
               })}
-            </div>
-            <Pagination />
+            </Reorder.Group>
+            <List />
           </div>
-          <Footer />
         </div>
       </div>
+      <div className='pagination'>
+        <Pagination />
+      </div>
+      <Footer />
       <ScrollToTop />
     </>
   )
