@@ -10,7 +10,10 @@ export type initialStateChannelsType = {
   isChannelsError: boolean,
   currentPage: number,
   valueSearch: string,
-  valueSort: null | string,
+  cuurentSorting: {
+    type: string,
+    order: Sorts,
+  }, 
 };
 export type initialStateHeaderType = {
   toggle: boolean,
@@ -81,7 +84,7 @@ export type CHANNELS_ERROR_ACTION = Action<typeof CHANNELS_ERROR, void>;
 export type FETCH_CHANNELS_ACTION = Action<typeof FETCH_CHANNELS, void>;
 export type CURRENT_PAGE_ACTION = Action<typeof CURRENT_PAGE, pageType>;
 export type VALUE_SEARCH_ACTION = Action<typeof VALUE_SEARCH, string>;
-export type VALUE_SORT_ACTION = Action<typeof VALUE_SORT, string>;
+export type VALUE_SORT_ACTION = Action<typeof VALUE_SORT, cuurentSortingType>;
 
 export type ACTIVE_TOGGLE_ACTION = Action<typeof ACTIVE_TOGGLE, void>;
 export type FETCH_ONLINE_USERS_ACTION = Action<typeof FETCH_ONLINE_USERS, void>;
@@ -102,3 +105,8 @@ export enum Sorts {
   ASC = 'ASC',
   DESC = 'DESC',
 } 
+
+export type cuurentSortingType = {
+  type: string,
+  order: Sorts
+}

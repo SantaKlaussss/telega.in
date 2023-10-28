@@ -8,26 +8,32 @@ import { useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchChannels, valueSearchAction } from '../../Redux/Catalog/catalogActions';
-import { channelsSelector, currentPageSelector, valueSearchSelector } from '../../Redux/Catalog/catalogSelectors';
+import { channelsSelector, currentPageSelector, valueSearchSelector, valueSortSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
 import { channelType } from '../../Redux/Types';
 import { filtered, sortedRating } from './filter';
 import { Reorder } from 'framer-motion';
-import { List } from './blabla';
 
 export const Catalog = () => {
   const channels = useSelector(channelsSelector);
-  const valueSearch = useSelector(valueSearchSelector)
+  const valueSearch = useSelector(valueSearchSelector);
+  const channelsSort = useSelector(valueSortSelector);
 
-  const [framerItems, setFramerItems] = useState(channels)
+  // состояние для DrugnDrop каналов
+  const [renderedChannels, setRenderedChannels] = useState<channelType[]>([]);
+
+  useEffect(() => {
+    setRenderedChannels(filtered(valueSearch, channels));
+  }, [channels, valueSearch]);
 
   //логика для сортировки
   const [isRating, setIsRating] = useState(false);
-  const [channelSort, setChannelSort] = useState(channels);
 
-  const ratingSorted: any = () => {
-    const sortedCards = sortedRating(channelSort);
-    setChannelSort(sortedCards);
+  const ratingSorted: any = (e: any) => {
+    let typeFild = e.target.dataset.sorting;
+    
+    const sortedCards = sortedRating(typeFild, channels);
+    
     setIsRating((prevState) => {
       return !prevState;
     })
@@ -45,11 +51,6 @@ export const Catalog = () => {
   const valueSearchFilter = (e: any) => {
     dispatch(valueSearchAction(e.target.value))
   }
-
-  const filteredCards = filtered(valueSearch, channels);
-  console.log(valueSearch, "valueSearch");
-  console.log(channels, "channels");
-
 
   return (
     <>
@@ -74,10 +75,10 @@ export const Catalog = () => {
                 <path d="M19 18l1 0"></path>
               </svg>
             </div>
-            <div className='info_items'>
+            <div className='info_items' onClick={(e) => { ratingSorted(e) }}>
               <div className="info_item info_item-chanels">Каналы</div>
               <div className="info_item info_item-count">12 953</div>
-              <div className="info_item info_item-rating" onClick={ratingSorted}>
+              <div className="info_item info_item-rating" data-sorting='rating'>
                 <span>Рейтинг</span>
                 <PiTrendUpDuotone
                   size={20}
@@ -88,12 +89,12 @@ export const Catalog = () => {
                   }}
                 />
               </div>
-              <div className="info_item info_item-er on_hover_yellow">ER</div>
-              <div className="info_item info_item-views on_hover_yellow">Просмотры</div>
-              <div className="info_item info_item-users on_hover_yellow">Подписчики</div>
-              <div className="info_item info_item-price on_hover_yellow">Стоимость</div>
+              <div className="info_item info_item-er on_hover_yellow" data-sorting='er'>ER</div>
+              <div className="info_item info_item-views on_hover_yellow" data-sorting='views' >Просмотры</div>
+              <div className="info_item info_item-users on_hover_yellow" data-sorting='followers'>Подписчики</div>
+              <div className="info_item info_item-price on_hover_yellow" data-sorting='price'>Стоимость</div>
               <div className="info_item info_item-add on_hover_yellow">Добавлен</div>
-              <div className="info_item info_item-cpv on_hover_yellow">CPV</div>
+              <div className="info_item info_item-cpv on_hover_yellow" data-sorting='cpv'>CPV</div>
               <div className="info_item info_item-selected"><PiChecksLight /></div>
             </div>
             <div className="filter">
@@ -124,14 +125,13 @@ export const Catalog = () => {
                 <button className='unlock_btn'>Зарегистрироваться</button>
               </div>
             </div>
-            <Reorder.Group axis="y" values={framerItems} className='catalog_items' onReorder={setFramerItems}>
-              {filteredCards.map((channel: channelType) => {
-                return <Reorder.Item key={channel.id} value={framerItems} >
-                  <CatalogItem key={channel.id} channel={channel}/>
-                  </Reorder.Item>
+            <Reorder.Group axis="y" values={renderedChannels} className='catalog_items' onReorder={setRenderedChannels}>
+              {renderedChannels.map((channel: channelType) => {
+                return <Reorder.Item key={channel.id} value={channel} >
+                  <CatalogItem key={channel.id} channel={channel} />
+                </Reorder.Item>
               })}
             </Reorder.Group>
-            <List />
           </div>
         </div>
       </div>

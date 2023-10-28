@@ -1,4 +1,4 @@
-import { channelType } from "../../Redux/Types";
+import { channelType, cuurentSortingType } from "../../Redux/Types";
 
 export const filtered = (searchText: string, channels: Array<channelType>) => {
   if (!searchText) return channels;
@@ -8,8 +8,9 @@ export const filtered = (searchText: string, channels: Array<channelType>) => {
   })
 };
 
-export const sortedRating = (channels: Array<channelType>) => {
-  return channels.sort((a, b) => b.rating - a.rating);
+export const sortedRating = (currentSorting: keyof channelType, channels: Array<channelType>) => {
+
+  return channels.sort((b, a) => a[currentSorting] - b[currentSorting]);
 }
 
 // export const sortedER = (formatType, channels: Array<channelType>) => {
