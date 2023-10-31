@@ -1,4 +1,4 @@
-import { channelType, cuurentSortingType } from "../../Redux/Types";
+import { SortsOrder, SortsType, channelType } from "../../Redux/Types";
 
 export const filtered = (searchText: string, channels: Array<channelType>) => {
   if (!searchText) return channels;
@@ -8,27 +8,16 @@ export const filtered = (searchText: string, channels: Array<channelType>) => {
   })
 };
 
-export const sortedRating = (currentSorting: keyof channelType, channels: Array<channelType>) => {
+export const sortedChannels = (currentSorting: SortsType, channels: Array<channelType>, order: SortsOrder) => {
+  if (order = SortsOrder.ASC) {
+    if (currentSorting === 'followers' || currentSorting === 'rating')
+      return channels.sort((a, b) => b[currentSorting] - a[currentSorting]);
 
-  return channels.sort((b, a) => a[currentSorting] - b[currentSorting]);
-}
+    return channels.sort((a, b) => b.format['1/24'][currentSorting] - a.format['1/24'][currentSorting]);
+  }
 
-// export const sortedER = (formatType, channels: Array<channelType>) => {
-//   return channels.sort((a, b) => b.format[formatType].er - a.format[formatType].er);
-// }
+  if (currentSorting === 'followers' || currentSorting === 'rating')
+    return channels.sort((a, b) => a[currentSorting] - b[currentSorting]);
 
-// export const sortedView = (viewType, channels: Array<channelType>) => {
-//   return channels.sort((a, b) => b.format[viewType].views - a.format[viewType].views);
-// }
-
-// export const sortedFollower = (channels: Array<channelType>) => {
-//   return channels.sort((a, b) => b.followers - a.followers);
-// }
-
-// export const sortedPrice = (priceType, channels: Array<channelType>) => {
-//   return channels.sort((a, b) => b.format[priceType].price - a.format[priceType].price);
-// }
-
-// export const sortedCPV = (cpvType, channels: Array<channelType>) => {
-//   return channels.sort((a, b) => b.format[cpvType].cpv - a.format[cpvType].cpv);
-// }
+  return channels.sort((a, b) => a.format['1/24'][currentSorting] - b.format['1/24'][currentSorting]);
+};

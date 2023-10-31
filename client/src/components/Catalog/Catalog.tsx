@@ -7,11 +7,11 @@ import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
 import { useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchChannels, valueSearchAction } from '../../Redux/Catalog/catalogActions';
+import { fetchChannels, valueSearchAction, valueSortAction } from '../../Redux/Catalog/catalogActions';
 import { channelsSelector, currentPageSelector, valueSearchSelector, valueSortSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
 import { channelType } from '../../Redux/Types';
-import { filtered, sortedRating } from './filter';
+import { filtered, sortedChannels } from './filter';
 import { Reorder } from 'framer-motion';
 
 export const Catalog = () => {
@@ -22,35 +22,35 @@ export const Catalog = () => {
   // состояние для DrugnDrop каналов
   const [renderedChannels, setRenderedChannels] = useState<channelType[]>([]);
 
-  useEffect(() => {
-    setRenderedChannels(filtered(valueSearch, channels));
-  }, [channels, valueSearch]);
-
   //логика для сортировки
   const [isRating, setIsRating] = useState(false);
 
-  const ratingSorted: any = (e: any) => {
-    let typeFild = e.target.dataset.sorting;
-    
-    const sortedCards = sortedRating(typeFild, channels);
-    
+  const sortedChange: any = (e: any) => {
+    let sortType = e.target.dataset.sorting;
+    sortedChannels(sortType, channels, channelsSort.order);
+
     setIsRating((prevState) => {
       return !prevState;
     })
+
+    dispatch(valueSortAction(sortType))
   }
 
+  // логика для пагинации
   let currentPage = useSelector(currentPageSelector);
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(fetchChannels(currentPage, 3) as any);
   }, [currentPage])
 
-
   // логика для фильтра
-
   const valueSearchFilter = (e: any) => {
     dispatch(valueSearchAction(e.target.value))
   }
+
+  useEffect(() => {
+    setRenderedChannels(filtered(valueSearch, channels));
+  }, [channels, valueSearch]);
 
   return (
     <>
@@ -75,10 +75,10 @@ export const Catalog = () => {
                 <path d="M19 18l1 0"></path>
               </svg>
             </div>
-            <div className='info_items' onClick={(e) => { ratingSorted(e) }}>
+            <div className='info_items' >
               <div className="info_item info_item-chanels">Каналы</div>
               <div className="info_item info_item-count">12 953</div>
-              <div className="info_item info_item-rating" data-sorting='rating'>
+              <div className="info_item info_item-rating" data-sorting='rating' onClick={(e) => { sortedChange(e) }}>
                 <span>Рейтинг</span>
                 <PiTrendUpDuotone
                   size={20}
@@ -89,12 +89,12 @@ export const Catalog = () => {
                   }}
                 />
               </div>
-              <div className="info_item info_item-er on_hover_yellow" data-sorting='er'>ER</div>
-              <div className="info_item info_item-views on_hover_yellow" data-sorting='views' >Просмотры</div>
-              <div className="info_item info_item-users on_hover_yellow" data-sorting='followers'>Подписчики</div>
-              <div className="info_item info_item-price on_hover_yellow" data-sorting='price'>Стоимость</div>
+              <div className="info_item info_item-er on_hover_yellow" data-sorting='er' onClick={(e) => { sortedChange(e) }}>ER</div>
+              <div className="info_item info_item-views on_hover_yellow" data-sorting='views' onClick={(e) => { sortedChange(e) }} >Просмотры</div>
+              <div className="info_item info_item-users on_hover_yellow" data-sorting='followers' onClick={(e) => { sortedChange(e) }}>Подписчики</div>
+              <div className="info_item info_item-price on_hover_yellow" data-sorting='price' onClick={(e) => { sortedChange(e) }}>Стоимость</div>
               <div className="info_item info_item-add on_hover_yellow">Добавлен</div>
-              <div className="info_item info_item-cpv on_hover_yellow" data-sorting='cpv'>CPV</div>
+              <div className="info_item info_item-cpv on_hover_yellow" data-sorting='cpv' onClick={(e) => { sortedChange(e) }}>CPV</div>
               <div className="info_item info_item-selected"><PiChecksLight /></div>
             </div>
             <div className="filter">

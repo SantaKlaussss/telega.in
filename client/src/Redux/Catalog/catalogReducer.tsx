@@ -1,4 +1,4 @@
-import { Sorts, initialStateChannelsType } from '../Types';
+import { SortsOrder, SortsType, initialStateChannelsType } from '../Types';
 
 export const initialStateChannels = {
   channels: [],
@@ -7,9 +7,9 @@ export const initialStateChannels = {
   isChannelsError: false,
   currentPage: 1,
   valueSearch: '',
-  cuurentSorting: {
-    type: '',
-    order: Sorts.ASC,
+  currentSorting: {
+    type: SortsType.price,
+    order: SortsOrder.ASC,
   },
 }
 
@@ -48,11 +48,19 @@ export function catalog(state: initialStateChannelsType = initialStateChannels, 
         valueSearch: action.payload
       }
     case 'VALUE_SORT':
+      let sortKey = action.payload;
+      let newOrder = SortsOrder.ASC;
+      if (sortKey === state.currentSorting.type) {
+        newOrder = state.currentSorting.order === SortsOrder.ASC ? SortsOrder.DESC : SortsOrder.ASC;
+      }
       return {
         ...state,
-        cuurentSorting: action.payload
+        currentSorting: {
+          type: action.payload,
+          order: newOrder,
+        }
       }
     default:
       return state
+      }
   }
-}

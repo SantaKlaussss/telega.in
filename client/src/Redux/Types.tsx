@@ -10,9 +10,9 @@ export type initialStateChannelsType = {
   isChannelsError: boolean,
   currentPage: number,
   valueSearch: string,
-  cuurentSorting: {
-    type: string,
-    order: Sorts,
+  currentSorting: {
+    type: SortsType,
+    order: SortsOrder,
   }, 
 };
 export type initialStateHeaderType = {
@@ -84,7 +84,7 @@ export type CHANNELS_ERROR_ACTION = Action<typeof CHANNELS_ERROR, void>;
 export type FETCH_CHANNELS_ACTION = Action<typeof FETCH_CHANNELS, void>;
 export type CURRENT_PAGE_ACTION = Action<typeof CURRENT_PAGE, pageType>;
 export type VALUE_SEARCH_ACTION = Action<typeof VALUE_SEARCH, string>;
-export type VALUE_SORT_ACTION = Action<typeof VALUE_SORT, cuurentSortingType>;
+export type VALUE_SORT_ACTION = Action<typeof VALUE_SORT, SortsType>;
 
 export type ACTIVE_TOGGLE_ACTION = Action<typeof ACTIVE_TOGGLE, void>;
 export type FETCH_ONLINE_USERS_ACTION = Action<typeof FETCH_ONLINE_USERS, void>;
@@ -101,12 +101,21 @@ export type SearchPropsType = {
 }
 
 // enam для сортировки каналов
-export enum Sorts {
+export enum SortsOrder {
   ASC = 'ASC',
   DESC = 'DESC',
 } 
 
-export type cuurentSortingType = {
-  type: string,
-  order: Sorts
+export enum SortsType {
+  rating = 'rating',
+  followers = 'followers',
+  views = 'views',
+  er = 'er',
+  cpv = 'cpv',
+  price = 'price',
+}
+
+export type currentSortingType = {
+  type: SortsType,
+  order: SortsOrder
 }
