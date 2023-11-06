@@ -15,8 +15,9 @@ app.get('/channels', (req, res) => {
   let currentPage = req.query.page;
   let pageSize = req.query.pageSize;
   
-  res.json({ status: 200, data: channels.slice((currentPage - 1) * pageSize, currentPage * pageSize)});
+  res.json({ status: 200, data: channels.slice((currentPage - 1) * pageSize, currentPage * pageSize), totalChannels: channels.length});
 });
+
 
 const PORT = 8000;
 

@@ -1,19 +1,20 @@
-import { SortsOrder, SortsType, initialStateChannelsType } from '../Types';
+import { ActionsCatalog, SortsOrder, SortsType, channelType, initialStateChannelsType } from '../Types';
 
 export const initialStateChannels = {
   channels: [],
   pages: [],
   isLoading: false,
   isChannelsError: false,
-  currentPage: 1,
+  currentPage: 2,
   valueSearch: '',
   currentSorting: {
-    type: SortsType.price,
+    type: SortsType.rating,
     order: SortsOrder.ASC,
   },
+  totalChannels: null,
 }
 
-export function catalog(state: initialStateChannelsType = initialStateChannels, action: any) {
+export function catalog(state: initialStateChannelsType = initialStateChannels, action: ActionsCatalog) {
   switch (action.type) {
     case 'FETCH_CHANNELS':
       return {
@@ -48,17 +49,44 @@ export function catalog(state: initialStateChannelsType = initialStateChannels, 
         valueSearch: action.payload
       }
     case 'VALUE_SORT':
-      let sortKey = action.payload;
+      let sortedChannels = [...state.channels];
+      const plateType: SortsType = state.currentSorting.type;
+      const plateOrder: SortsOrder = state.currentSorting.order;
+      let sortKey = action.payload as SortsType;
       let newOrder = SortsOrder.ASC;
-      if (sortKey === state.currentSorting.type) {
-        newOrder = state.currentSorting.order === SortsOrder.ASC ? SortsOrder.DESC : SortsOrder.ASC;
+
+      if (sortKey === plateType) {
+        newOrder = plateOrder === SortsOrder.ASC ? SortsOrder.DESC : SortsOrder.ASC;
       }
+
+      if (newOrder === SortsOrder.ASC) {
+        if (sortKey === 'followers' || sortKey === 'rating') {
+          sortedChannels.sort((a: any, b: any) => b[sortKey] - a[sortKey]);
+        } else {
+          sortedChannels.sort((a: any, b: any) => b.format['1/24'][sortKey] - a.format['1/24'][sortKey]);
+        }
+      }
+      
+      if (newOrder === SortsOrder.DESC) {
+        if (sortKey === 'followers' || sortKey === 'rating') {
+          sortedChannels.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
+        } else {
+          sortedChannels.sort((a: any, b: any) => a.format['1/24'][sortKey] - b.format['1/24'][sortKey]);
+        }
+      }
+      
       return {
         ...state,
+        channels: sortedChannels,
         currentSorting: {
           type: action.payload,
           order: newOrder,
         }
+      }
+    case 'TOTAL_CHANNELS':
+      return {
+        ...state,
+        totalChannels: action.payload
       }
     default:
       return state

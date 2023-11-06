@@ -4,43 +4,56 @@ import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 import { FiChevronDown, FiSearch } from "react-icons/fi";
 import { PiChecksLight, PiLockBold, PiTrendUpDuotone } from "react-icons/pi";
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { CatalogItem } from './CatalogItem/CatalogItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchChannels, valueSearchAction, valueSortAction } from '../../Redux/Catalog/catalogActions';
 import { channelsSelector, currentPageSelector, valueSearchSelector, valueSortSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
-import { channelType } from '../../Redux/Types';
-import { filtered, sortedChannels } from './filter';
+import { PlateType, SortsType, channelType } from '../../Redux/Types';
+import { filtered } from './filter';
 import { Reorder } from 'framer-motion';
+import { Plate } from './Plate/Plate';
 
-export const Catalog = () => {
+const plates: Array<PlateType> = [
+  {
+    value: SortsType.rating,
+    name: 'Рейтинг'
+  },
+  {
+    value: SortsType.er,
+    name: 'ER'
+  },
+  {
+    value: SortsType.views,
+    name: 'Просмотры'
+  },
+  {
+    value: SortsType.followers,
+    name: 'Подписчики'
+  },
+  {
+    value: SortsType.price,
+    name: 'Стоимость'
+  },
+  {
+    value: SortsType.cpv,
+    name: 'CPV'
+  },
+]
+
+export const Catalog: FC = () => {
   const channels = useSelector(channelsSelector);
   const valueSearch = useSelector(valueSearchSelector);
-  const channelsSort = useSelector(valueSortSelector);
 
   // состояние для DrugnDrop каналов
   const [renderedChannels, setRenderedChannels] = useState<channelType[]>([]);
-
-  //логика для сортировки
-  const [isRating, setIsRating] = useState(false);
-
-  const sortedChange: any = (e: any) => {
-    let sortType = e.target.dataset.sorting;
-    sortedChannels(sortType, channels, channelsSort.order);
-
-    setIsRating((prevState) => {
-      return !prevState;
-    })
-
-    dispatch(valueSortAction(sortType))
-  }
-
+  
   // логика для пагинации
   let currentPage = useSelector(currentPageSelector);
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(fetchChannels(currentPage, 3) as any);
+    dispatch(fetchChannels(currentPage, 5) as any);
   }, [currentPage])
 
   // логика для фильтра
@@ -75,26 +88,16 @@ export const Catalog = () => {
                 <path d="M19 18l1 0"></path>
               </svg>
             </div>
-            <div className='info_items' >
+            <div className='info_items'>
               <div className="info_item info_item-chanels">Каналы</div>
               <div className="info_item info_item-count">12 953</div>
-              <div className="info_item info_item-rating" data-sorting='rating' onClick={(e) => { sortedChange(e) }}>
-                <span>Рейтинг</span>
-                <PiTrendUpDuotone
-                  size={20}
-                  style={{
-                    marginRight: '10px',
-                    rotate: isRating ? '180deg' : '',
-                    transition: isRating ? '300ms' : '300ms'
-                  }}
-                />
+              <div className='plate'>
+                {
+                  plates.map((plate) => {
+                    return <Plate key={plate.name} plate={plate} />
+                  })
+                }
               </div>
-              <div className="info_item info_item-er on_hover_yellow" data-sorting='er' onClick={(e) => { sortedChange(e) }}>ER</div>
-              <div className="info_item info_item-views on_hover_yellow" data-sorting='views' onClick={(e) => { sortedChange(e) }} >Просмотры</div>
-              <div className="info_item info_item-users on_hover_yellow" data-sorting='followers' onClick={(e) => { sortedChange(e) }}>Подписчики</div>
-              <div className="info_item info_item-price on_hover_yellow" data-sorting='price' onClick={(e) => { sortedChange(e) }}>Стоимость</div>
-              <div className="info_item info_item-add on_hover_yellow">Добавлен</div>
-              <div className="info_item info_item-cpv on_hover_yellow" data-sorting='cpv' onClick={(e) => { sortedChange(e) }}>CPV</div>
               <div className="info_item info_item-selected"><PiChecksLight /></div>
             </div>
             <div className="filter">

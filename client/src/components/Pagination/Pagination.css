@@ -16,6 +16,10 @@
   font-size: 18px;
 }
 
+.block-pagination:last-child {
+  margin-right: 0;
+}
+
 .block-pagination:hover {
   opacity: 0.8;
 }
@@ -27,4 +31,20 @@
 .block-pagination--active {
   background-color: rgb(255, 126, 71);
   font-weight: bold;
+}
+
+.arrows {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(0, 204, 255);
+  cursor: pointer;
+}
+
+.prev {
+  margin-right: 20px;
+}
+
+.next {
+  margin-left: 20px ;
 }

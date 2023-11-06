@@ -47,7 +47,6 @@ const Header: React.FC = () => {
   };
 
   const fetching = useSelector(fetchUsersIsOnlineSelector);
-  const fetchingError = useSelector(isOnlineUsersErrorAction);
 
   return (
     <header className='header'>

@@ -31,12 +31,17 @@
 .info_item {
   padding: 8px;
   border-radius: 8px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   cursor: pointer;
   margin-left: 6px;
   color: #39414e;
   font-weight: 500;
   font-size: 18px;
+}
+
+.plate {
+  display: flex;
 }
 
 .info_item-chanels {
@@ -63,7 +68,6 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-  background-color: #fbb040;
   color: #000;
   cursor: pointer;
   margin-left: 30px;
@@ -71,7 +75,11 @@
   font-weight: 500;
 }
 
-.info_item-rating span {
+.info_item-rating:hover {
+  background-color: #fbb040;
+}
+
+.info_item span {
   margin-right: 7px;
 }
 
