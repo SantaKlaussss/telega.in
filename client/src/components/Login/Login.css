@@ -1,0 +1,150 @@
+.background_wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 4;
+}
+
+.login_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 580px;
+  height: 485px;
+  z-index: 99;
+  font-family: 'Raleway', sans-serif;
+  transform: translate(-50%, -50%);
+}
+
+.login_main {
+  padding: 80px;
+  background-color: #fff;
+  border-radius: 20px;
+  position: relative;
+}
+
+.title {
+  color: #202327;
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif !important;
+  font-size: 48px;
+  line-height: 48px;
+  font-weight: 700;
+}
+
+.login_close {
+  position: absolute;
+  z-index: 43543;
+  top: 10px;
+  right: 10px;
+  font-size: 23px;
+  color: rgb(120, 131, 148);
+  cursor: pointer;
+}
+
+.email_wrapper {
+  border: none;
+  text-transform: none;
+  display: flex;
+  text-align: start;
+  cursor: text;
+  box-shadow: inset 0 0 0 2px #788394;
+  border-radius: 8px;
+  line-height: 26px;
+  position: relative;
+  min-width: 106px;
+  height: 45px;
+  width: 415px;
+  margin-bottom: 15px;
+}
+
+.email_input {
+  outline: none;
+  border: none;
+  background-color: inherit;
+  cursor: text;
+  width: 100%;
+  height: 100%;
+  padding-left: 15px;
+}
+
+.email_input-svg {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 20px;
+  color: rgb(120, 131, 148);
+}
+
+.password_wrapper {
+  border: none;
+  text-transform: none;
+  display: flex;
+  text-align: start;
+  cursor: text;
+  box-shadow: inset 0 0 0 2px #788394;
+  border-radius: 8px;
+  line-height: 26px;
+  position: relative;
+  min-width: 106px;
+  height: 45px;
+  width: 415px;
+  margin-bottom: 15px;
+}
+
+.password_input {
+  outline: none;
+  border: none;
+  background-color: inherit;
+  cursor: text;
+  width: 100%;
+  padding-left: 15px;
+}
+
+.password_input-svg {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  font-size: 20px;
+  color: rgb(120, 131, 148);
+}
+
+.forget_pass {
+  cursor: pointer;
+  color: #325FEB;
+  margin-bottom: 15px;
+}
+
+.login_button {
+  padding: 20px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 600;
+  background-color: #325FEB;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.login_footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.login_footer-not_acc {
+  margin-right: 10px;
+  color: rgb(120, 131, 148);
+}
+
+.login_footer-registration {
+  color: #325FEB ;
+}

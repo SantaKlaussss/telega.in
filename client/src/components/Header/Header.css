@@ -30,8 +30,6 @@
   display: flex;
   align-items: center;
   background-color: #10F09F;
-  width: 60px;
-  height: 28px;
   margin-left: 24px;
   border-radius: 7px;
   font-size: 16px;
@@ -40,6 +38,7 @@
   cursor: help;
   padding: 0 5px 0 10px;
   justify-content: space-between;
+  box-sizing: content-box;
 }
 
 .logo__online-icon {
@@ -52,7 +51,8 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
-  margin-right: 20px;
+  padding: 5px 5px;
+  padding-left: 0;
 }
 
 .spinner {

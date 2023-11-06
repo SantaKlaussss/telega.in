@@ -33,6 +33,10 @@
   margin-left: 3px;
 }
 
+.logo_raiting-svg {
+  margin-right: 5px;
+}
+
 .logo_img {
   display: flex;
 }
@@ -43,18 +47,20 @@
   font-weight: 800;
 }
 
-.logo_img img{
+.logo_img img {
   width: 51px;
-  height: auto;
+  height: 51px;
   border-radius: 50%;
   border: 2px solid rgb(148, 208, 228);
   position: absolute;
   left: 10px;
+  padding: 2px;
 }
 
 .card_item-name {
   margin-left: 8px;
   margin-right: 25px;
+  min-width: 300px;
 }
 
 .name_info {
@@ -144,7 +150,6 @@
 .small_title_text {
   color: #808080;
   font-size: 12px;
-  padding-top: 5px;
 }
 
 .small_title_count {
@@ -246,7 +251,7 @@
 
 .input_select-svg {
   position: absolute;
-  top: 1px;
+  top: 7px;
   right: 9px;
 }
 
@@ -262,6 +267,7 @@
   min-width: 140px;
   top: 0;
   border-radius: 8px;
+  z-index: 22;
 }
 
 .left_show li {
@@ -293,6 +299,7 @@
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 240px;
+  z-index: 20;
 }
 
 .right_show li {
@@ -370,7 +377,7 @@
   margin-left: 20px;
   background-color: #325FEB;
   width: 40px;
-  margin: -8px -8px -8px 0px;
+  margin: -8px 0px -8px 0px;
   position: relative;
   display: flex;
   flex-direction: column;

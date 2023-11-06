@@ -1,20 +1,13 @@
-import * as action from './headerActions';
+import { ActionsHeader, initialStateHeaderType } from '../Types';
 
-const initialState = {
+export const initialStateHeader = {
   toggle: false,
   isOnlineUsersFetching: false,
   onlineUsers: 0,
   isOnlineUsersError: false,
 }
 
-type initialStateType = {
-  toggle: boolean,
-  isOnlineUsersFetching: boolean,
-  onlineUsers: number,
-  isOnlineUsersError: boolean,
-}
-
-export function header(state: initialStateType = initialState, action: any) {
+export function header(state: initialStateHeaderType = initialStateHeader, action: any) {
   switch (action.type) {
     case 'ACTIVE_TOGGLE':
       return {
@@ -35,7 +28,7 @@ export function header(state: initialStateType = initialState, action: any) {
         onlineUsers: action.payload,
         isOnlineUsersError: false,
       }
-    case 'ONLINE__ERROR':
+    case 'ONLINE_ERROR':
       console.log('Errors')
       return {
         ...state,

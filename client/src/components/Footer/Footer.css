@@ -4,6 +4,8 @@
   color: #657791;
   font-family: 'Raleway', sans-serif;
   line-height: 120%;
+  justify-content: center;
+  width: 100%;
 }
 
 .footer__items {
@@ -44,6 +46,7 @@
 
 .telega__sales__dep {
   text-align: end;
+  min-width: 215px;
 }
 
 .work__schedule {
@@ -57,6 +60,7 @@
   line-height: 20px;
   font-weight: 800;
   color: #325feb;
+  justify-content: flex-end;
 }
 
 .cmc {
@@ -78,5 +82,5 @@
 }
 
 .phone__img {
-  margin-right: 20px;
+  margin-right: 10px;
 }

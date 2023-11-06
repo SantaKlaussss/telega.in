@@ -11,6 +11,7 @@ import { Serves } from '../Serves/Serves';
 import { fetchOnlineUsers } from '../../Redux/Header/headerActions';
 import { usersOnlineSelector } from '../../Redux/Header/headerSelectors';
 import { Preloader } from '../Preloader/Preloader';
+import { Login } from '../Login/Login';
 
 const Header: React.FC = () => {
   const [isServesActived, setIsServesActived] = useState(false);
@@ -18,6 +19,12 @@ const Header: React.FC = () => {
   const servesRotate = () => {
     setIsServesActived((prevState) => !prevState)
   };
+
+
+  const [isLogin, setIsLogin] = useState(false);
+  const loginToggle = () => {
+    setIsLogin((prevState) => !prevState)
+  }
 
   const dispatch = useDispatch()
 
@@ -40,15 +47,17 @@ const Header: React.FC = () => {
   };
 
   const fetching = useSelector(fetchUsersIsOnlineSelector);
-  const fetchingError = useSelector(isOnlineUsersErrorAction);
 
   return (
     <header className='header'>
+      <div style={{display: isLogin ? 'block' : 'none'}}>
+        <Login loginToggle={loginToggle} />
+      </div>
       <nav className='navigation'>
         <ul className='navigation__items'>
           <li className='navigation__item'>
-            <a href="/" className='navigation__item-logo'>
-              <svg width="150" height="auto" viewBox="0 0 293 63" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="/" className='navigation__item-logo' title='a'>
+              <svg width="150" viewBox="0 0 293 63" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M232 37.6H219.7V49.9H232V37.6Z" fill="#325FEB"></path>
                 <path d="M14.2 13.9H0V5.59998H38.6V13.9H24.4V49.8H14.2V13.9Z" fill="black"></path>
                 <path d="M73.1 35.6H47.4C48.3 39.8 52 42.4 57.1 42.4C60.7 42.4 63.3 41.3 65.6 39.1L70.8 44.8C67.6 48.4 62.9 50.3 56.8 50.3C45 50.3 37.4 42.9 37.4 32.8C37.4 22.6 45.2 15.3 55.5 15.3C65.5 15.3 73.2 22 73.2 32.9C73.3 33.7 73.1 34.8 73.1 35.6ZM47.2 29.9H64C63.3 25.6 60.1 22.8 55.7 22.8C51.1 22.8 47.9 25.5 47.2 29.9Z" fill="black"></path>
@@ -92,7 +101,7 @@ const Header: React.FC = () => {
             <button type='button' className='button-reg button__yellow-animation'>Регистрация</button>
           </li>
           <li className='navigation__item navigation__item-enter'>
-            <div className='enter__button'>
+            <div className='enter__button' onClick={loginToggle}>
               Войти
               <LoginOutlined className='enter__logo' />
             </div>

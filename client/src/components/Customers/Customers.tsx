@@ -6,7 +6,8 @@ import { Slider } from '../Slider/Slider';
 import Footer from '../Footer/Footer';
 import { ScrollToTop } from '../ScrollToTop/ScrollToTop';
 
-export const Customers = () => {
+export const Customers:React.FC = () => {
+
   return (
     <>
       <Header />
