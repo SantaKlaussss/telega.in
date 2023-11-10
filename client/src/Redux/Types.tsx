@@ -1,6 +1,9 @@
 import rootReducer from ".";
+import { store } from "..";
 import { CHANNELS_ERROR, CURRENT_PAGE, FETCH_CHANNELS, GET_DATA_SUCCESS, GET_REQUEST, TOTAL_CHANNELS, VALUE_SEARCH, VALUE_SORT } from "./Catalog/catalogConstants";
 import { ACTIVE_TOGGLE, FETCH_ONLINE_USERS, ONLINE_ERROR, ONLINE_SUCCESS } from "./Header/headerConstants";
+import { header } from '../Redux/Header/headerReducer';
+import { catalog } from '../Redux/Catalog/catalogReducer';
 
 // initialStates
 export type initialStateChannelsType = {
@@ -94,7 +97,7 @@ export type ONLINE_SUCCESS_ACTION = Action<typeof ONLINE_SUCCESS, number>;
 export type ONLINE_ERROR_ACTION = Action<typeof ONLINE_ERROR, void>;
 
 // typing RootReducer
-export type RootState = ReturnType<typeof rootReducer>
+export type RootState = ReturnType<typeof store.getState>
 
 // Типизация пропсов для текстового Поисковика
 export type SearchPropsType = {
@@ -123,3 +126,11 @@ export type currentSortingType = {
 
 //  typing props for PLate
 export type PlateType = { value: SortsType, name: string}
+
+
+//Root
+
+export type RootReducer = {
+  readonly header: ReturnType< typeof header>,
+  readonly catalog: ReturnType<typeof catalog>
+}

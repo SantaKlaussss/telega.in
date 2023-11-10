@@ -14,7 +14,7 @@ export const initialStateChannels = {
   totalChannels: null,
 }
 
-export function catalog(state: initialStateChannelsType = initialStateChannels, action: ActionsCatalog) {
+export function catalog(state: initialStateChannelsType = initialStateChannels, action: any) {
   switch (action.type) {
     case 'FETCH_CHANNELS':
       return {

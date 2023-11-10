@@ -11,7 +11,7 @@ import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import { Api } from './Api';
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   composeWithDevTools(applyMiddleware(thunk.withExtraArgument(new Api())))
 );
