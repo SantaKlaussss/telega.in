@@ -29,7 +29,7 @@ export type initialStateHeaderType = {
 export type stateType = initialStateChannelsType | initialStateHeaderType;
 
 // типизация карточки канала
-export type channelType = {
+export type Channel = {
   id: number,
   rating: number,
   logo: string,
@@ -82,7 +82,7 @@ export type ActionsCatalog = GET_DATA_SUCCESS_ACTION | GET_REQUEST_ACTION | CHAN
 export type ActionsHeader =  ACTIVE_TOGGLE_ACTION | FETCH_ONLINE_USERS_ACTION |ONLINE_SUCCESS_ACTION |ONLINE_ERROR_ACTION; 
 
 // типизация констант
-export type GET_DATA_SUCCESS_ACTION = Action<typeof GET_DATA_SUCCESS, channelType>;
+export type GET_DATA_SUCCESS_ACTION = Action<typeof GET_DATA_SUCCESS, Array<Channel>>;
 export type GET_REQUEST_ACTION = Action<typeof GET_REQUEST, void>;
 export type CHANNELS_ERROR_ACTION = Action<typeof CHANNELS_ERROR, void>;
 export type FETCH_CHANNELS_ACTION = Action<typeof FETCH_CHANNELS, void>;
@@ -101,7 +101,7 @@ export type RootState = ReturnType<typeof store.getState>
 
 // Типизация пропсов для текстового Поисковика
 export type SearchPropsType = {
-  channels: Array<channelType>,
+  channels: Array<Channel>,
 }
 
 // enam для сортировки каналов

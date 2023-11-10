@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchChannels, valueSearchAction, valueSortAction } from '../../Redux/Catalog/catalogActions';
 import { channelsSelector, currentPageSelector, valueSearchSelector, valueSortSelector } from '../../Redux/Catalog/catalogSelectors';
 import Pagination from '../Pagination/Pagination';
-import { PlateType, SortsType, channelType } from '../../Redux/Types';
+import { PlateType, SortsType, Channel } from '../../Redux/Types';
 import { filtered } from './filter';
 import { Reorder } from 'framer-motion';
 import { Plate } from './Plate/Plate';
@@ -47,7 +47,7 @@ export const Catalog: FC = () => {
   const valueSearch = useSelector(valueSearchSelector);
 
   // состояние для DrugnDrop каналов
-  const [renderedChannels, setRenderedChannels] = useState<channelType[]>([]);
+  const [renderedChannels, setRenderedChannels] = useState<Channel[]>([]);
   
   // логика для пагинации
   let currentPage = useSelector(currentPageSelector);
@@ -129,7 +129,7 @@ export const Catalog: FC = () => {
               </div>
             </div>
             <Reorder.Group axis="y" values={renderedChannels} className='catalog_items' onReorder={setRenderedChannels}>
-              {renderedChannels.map((channel: channelType) => {
+              {renderedChannels.map((channel: Channel) => {
                 return <Reorder.Item key={channel.id} value={channel} >
                   <CatalogItem key={channel.id} channel={channel} />
                 </Reorder.Item>

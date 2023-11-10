@@ -1,4 +1,4 @@
-import { ActionsCatalog, SortsOrder, SortsType, channelType, initialStateChannelsType } from '../Types';
+import { ActionsCatalog, SortsOrder, SortsType, initialStateChannelsType } from '../Types';
 
 export const initialStateChannels = {
   channels: [],
