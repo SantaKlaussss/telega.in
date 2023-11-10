@@ -9,11 +9,17 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './Redux';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
-import { Api } from './Api';
+import { Api } from './api/Api';
+import { MockApi } from './api/MockApi';
+
+const isMockApi = false
+const api = isMockApi
+  ? new MockApi()
+  : new Api()
 
 export const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(new Api())))
+  composeWithDevTools(applyMiddleware(thunk.withExtraArgument(api)))
 );
 
 const root = ReactDOM.createRoot(

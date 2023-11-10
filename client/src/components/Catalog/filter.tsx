@@ -1,6 +1,6 @@
-import { channelType } from "../../Redux/Types";
+import { Channel } from "../../Redux/Types";
 
-export const filtered = (searchText: string, channels: Array<channelType>) => {
+export const filtered = (searchText: string, channels: Array<Channel>) => {
   if (!searchText) return channels;
 
   return channels.filter(({ name }) => {
