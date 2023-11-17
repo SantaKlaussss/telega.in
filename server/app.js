@@ -4,7 +4,10 @@ import {channels} from './channels.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  // FIXME: use specific origin
+  origin: '*'
+}));
 app.use(express.json());
 
 app.get('/onlineusers', (req, res) => {

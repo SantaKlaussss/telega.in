@@ -20,6 +20,8 @@ export const fetchChannels = (currentPage: number, pageSize: number) => (dispatc
       dispatch(totalChannelsAction(totalChannels));
     })
     .catch((err: any) => {
-      dispatch(isChannelDataErrorAction())
+      if (err?.response?.status !== 200) {
+        dispatch(isChannelDataErrorAction())
+      }
     })
 };

@@ -9,7 +9,8 @@ type GetChannelsResponse = {
 
 export class Api implements IApi {
   api = axios.create({
-    baseURL: 'http://localhost:8000',
+    // FIXME: environment variables
+    baseURL: 'http://212.233.120.98:8000',
     timeout: 5000
   })
 
