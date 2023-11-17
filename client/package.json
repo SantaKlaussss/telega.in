@@ -2,6 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://titoffag.github.io/telega.in",
   "dependencies": {
     "@ant-design/icons": "5.2.6",
     "@mantine/carousel": "7.0.0",
