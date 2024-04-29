@@ -1,0 +1,114 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 0 20px;
+}
+
+.advertising {
+  display: flex;
+  align-items: center;
+}
+.advertising__left__title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 130%;
+  color: #111;
+  margin-bottom: 26px;
+  max-width: 560px;
+}
+.advertising__left__title_textYellow {
+  box-sizing: border-box;
+  padding: 3px 5px;
+  background-color: #FBB040;
+  color: #fff;
+  border-radius: 5px;
+}
+.advertising__left__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 130%;
+  color: #657791;
+  max-width: 480px;
+}
+.advertising__left__info {
+  margin-top: 34px;
+  display: flex;
+}
+.advertising__left__info__users {
+  display: block;
+}
+.advertising__left__info__users__count {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 130%;
+  color: #111;
+  min-width: 170px;
+}
+.advertising__left__info__users__online, .advertising__left__info__users__month {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  color: #111;
+  background: #10F09F;
+  border-radius: 2px;
+  padding: 3px 6px;
+  display: inline-block;
+}
+.advertising__left__info__users__text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: #657791;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.advertising__left__info li:not(:last-child) {
+  margin-right: 30px;
+}
+
+.advertising__left__info li p:nth-child(2) {
+  max-width: 150px;
+}
+
+.advertisingLeft__buy {
+  padding: 8px 16px;
+  margin-left: 24px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: #325FEB;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  margin-left: 0;
+  height: 56px;
+  display: inline-block;
+  background: #325FEB;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 15px 10px;
+  color: white;
+  position: relative;
+}
+.advertisingLeft__buy:hover {
+  background-color: #fbb040;
+  color: white;
+  border: none;
+  transition: all 450ms ease-in-out;
+}
+
+.advertistingRight_video {
+  position: relative;
+  width: 100%;
+}/*# sourceMappingURL=Owners.module.css.map */

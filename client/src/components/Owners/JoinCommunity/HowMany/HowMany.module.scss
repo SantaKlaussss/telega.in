@@ -1,0 +1,141 @@
+@import '../../Owners.module.scss';
+
+@mixin green {
+  color: #fff;
+  background: #10F09F;
+  padding: 0 6px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+$gray: #869AB7;
+
+.container {
+  max-width: 960px;
+  background-color: white;
+  padding: 45px 80px 55px;
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+.green {
+  @include green();
+}
+
+.title {
+  font-style: normal;
+  color: #000;
+  font-weight: bold;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 130%;
+  text-align: center;
+  color: $gray;
+  margin-bottom: 25px;
+}
+
+.main {
+  padding-top: 25px;
+  display: flex;
+  box-shadow: 0px 0px 1px rgba(0,0,0,0.5), 0px 2px 4px rgba(34,34,34,0.12);
+  border-radius: 10px;
+  padding-bottom: 20px;
+}
+
+.left {
+  min-width: 460px;
+  margin: 0 20px 0 30px;
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    margin-bottom: 13px;
+    color: $gray;
+  }
+
+  &__select {
+    width: 100%;
+    height: 55px;
+    border: 2px solid #325FEB;
+    border-radius: 6px;
+    padding: 12px 20px;
+    outline: none;
+    appearance: none;
+    background-size: 15px;
+    background-image: url('https://img2.freepng.ru/20180421/cbw/kisspng-vitrified-tile-ceramic-advertising-5adb6b4c6fc1e3.5426463315243292924578.jpg');
+    background-repeat: no-repeat;
+    background-position: 420px;
+    padding-right: 20px;
+    padding: 6px 24px 6px;
+    margin-bottom: 50px;
+  }
+
+  &__option {
+    font-style: normal;
+    font-size: 24px;
+    color: $gray;
+  }
+}
+
+.followers {
+  display: flex;
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    margin-bottom: 30px;
+    color: $gray;
+  }
+
+  &__count {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    flex-grow: 0;
+    margin-left: auto;
+  }
+}
+
+.right {
+  min-width: 260px;
+  border-left: 1px solid #e4e4e4;
+  margin-left: 15px;
+  padding-left: 35px;
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 130%;
+    margin-bottom: 20px;
+    color: $gray;
+  }
+
+  &__price {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    flex-grow: 0;
+    margin-bottom: 32px;
+  }
+
+  &__button {
+    @include btn-blue;
+    margin-left: 0;
+    font-weight: 600;
+    padding: 19px 15px;
+  }
+}

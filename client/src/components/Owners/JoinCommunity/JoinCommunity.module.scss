@@ -1,0 +1,21 @@
+.platform {
+  background-color: #325FEB;
+  box-sizing: border-box;
+  border-bottom: 10%;
+  padding: 75px 20px 60px;
+  border-bottom-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  margin-top: 40px;
+  &__title {
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 46px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    max-width: 889px;
+    margin-bottom: 30px;
+  }
+}
