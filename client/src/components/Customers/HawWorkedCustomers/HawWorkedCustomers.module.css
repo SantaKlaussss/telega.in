@@ -1,0 +1,97 @@
+.platform {
+  background-color: #325FEB;
+  box-sizing: border-box;
+  border-bottom: 10%;
+  padding: 75px 20px 60px;
+  border-bottom-right-radius: 70px;
+  border-bottom-left-radius: 70px;
+  margin-top: 40px;
+}
+.platform__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.platform__title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 136.88%;
+  color: #fff;
+}
+.platform__svg {
+  position: relative;
+  height: 578px;
+  left: 300px;
+  top: 30px;
+}
+.platform__text {
+  font-style: normal;
+}
+.platform__list {
+  position: absolute;
+  color: #fff;
+  box-sizing: content-box;
+  line-height: 120%;
+  font-size: 24px;
+}
+.platform__list li:nth-child(1) {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+}
+.platform__list li:nth-child(2) {
+  position: absolute;
+  top: 170px;
+  left: 40px;
+  background-color: #FBB040;
+  border-radius: 20%;
+}
+.platform__list li:nth-child(2) button {
+  cursor: pointer;
+  width: 200px;
+  background-color: #FBB040 !important;
+  color: white;
+  border: none;
+  min-width: 220px;
+  height: 56px;
+  background: #325FEB;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 130%;
+}
+.platform__list li:nth-child(3) {
+  position: absolute;
+  top: 70px;
+  left: 570px;
+  min-width: 400px;
+}
+.platform__list li:nth-child(4) {
+  position: absolute;
+  top: 315px;
+  left: 160px;
+  min-width: 400px;
+}
+.platform__list li:nth-child(4) p {
+  margin-top: 40px;
+  font-size: 16px;
+}
+.platform__list li:nth-child(5) {
+  position: absolute;
+  top: 160px;
+  left: 900px;
+  min-width: 400px;
+}
+.platform__list li:nth-child(6) {
+  position: absolute;
+  top: 480px;
+  left: 290px;
+  min-width: 400px;
+}
+.platform__list li:nth-child(7) {
+  position: absolute;
+  top: 440px;
+  left: 650px;
+  min-width: 400px;
+}/*# sourceMappingURL=HawWorkedCustomers.module.css.map */

@@ -1,0 +1,56 @@
+@import '../Owners.module.scss';
+
+.container {
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 40px;
+  text-align: center;
+  color: #000000;
+  margin-top: 80px;
+  margin-bottom: 50px;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: -10px;
+
+  &__item {
+    display: flex;
+    font-weight: 500;
+    width: 350px;
+    margin-right: 30px;
+    margin-bottom: 50px;
+  }
+
+  &__logo {
+    width: 80px;
+  }
+
+  &__description {
+    font-size: 24px;
+    line-height: 130%;
+    margin-left: 10px;
+  }
+}
+
+.textBold {
+  font-weight: 800;
+}
+
+.addChannels {
+  @include btn-blue;
+  padding: 18px 10px;
+  margin-left: 0;
+  font-weight: 600;
+}

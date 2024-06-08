@@ -1,0 +1,128 @@
+@mixin yellow{
+  background-color: #FBB040;
+  color: #fff;
+  border-radius: 5px;
+}
+
+$blue: #325FEB;
+
+@mixin btn-blue {
+  padding: 8px 16px;
+  margin-left: 24px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  background-color: #325FEB;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  &:hover {
+  background-color: #fbb040;
+  color: white;
+  border: none;
+  transition: all 450ms ease-in-out;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 0 20px;
+}
+
+.advertising {
+  display: flex;
+  align-items: center;
+  &__left{
+    &__title {
+      font-style: normal;
+      font-weight: 800;
+      font-size: 42px;
+      line-height: 130%;
+      color: #111;
+      margin-bottom: 26px;
+      max-width: 560px;
+      &_textYellow {
+        box-sizing:border-box;
+        padding: 3px 5px;
+        @include yellow;
+      }
+    }
+    &__text {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 130%;
+      color: #657791;
+      max-width: 480px;
+    }
+    &__info {
+      margin-top: 34px;
+      display: flex;
+      &__users {
+        display: block;
+        &__count {
+          font-style: normal;
+          font-weight: 800;
+          font-size: 36px;
+          line-height: 130%;
+          color: #111;
+          min-width: 170px;
+        };
+        &__online, 
+        &__month {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 100%;
+          color: #111;
+          background: #10F09F;
+          border-radius: 2px;
+          padding: 3px 6px;
+          display: inline-block;
+        }
+        &__text {
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 130%;
+          color: #657791;
+          margin-top: 6px;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.advertising__left__info li:not(:last-child) {
+  margin-right: 30px;
+}
+.advertising__left__info li p:nth-child(2) {
+  max-width: 150px;
+}
+
+.advertisingLeft__buy {
+  @include btn-blue;
+  margin-top: 50px;
+  margin-bottom: 60px;
+  margin-left: 0;
+  height: 56px;
+  display: inline-block;
+  background: #325FEB;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 15px 10px;
+  color: white;
+  position: relative;
+}
+
+.advertistingRight {
+  &_video {
+    position: relative;
+    width: 100%;
+  }
+}
