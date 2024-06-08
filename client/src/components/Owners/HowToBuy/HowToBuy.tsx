@@ -1,4 +1,4 @@
-import { features } from 'process'
+import React from 'react';
 import style from './HowToBuy.module.css'
 
 export const HowToBuy = () => {
